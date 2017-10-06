@@ -1,6 +1,6 @@
 name: Website do Mateus
-description: Dicas e tutoriais em Python, C++, Lua e Go
-meta_description: "Website do Mateus, Dicas e tutoriais em Python, C++, Lua e Go"
+description: Dicas e tutoriais em C++, Python e Lua
+meta_description: "Website do Mateus, Dicas e tutoriais em C++, Python e Lua"
 
 markdown: kramdown
 highlighter: pygments
