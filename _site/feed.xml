@@ -5,9 +5,54 @@
     <description>Explicando magia com C++, Python e Lua</description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 04 Feb 2018 12:15:06 -0200</pubDate>
-    <lastBuildDate>Sun, 04 Feb 2018 12:15:06 -0200</lastBuildDate>
+    <pubDate>Sun, 04 Feb 2018 20:58:50 -0200</pubDate>
+    <lastBuildDate>Sun, 04 Feb 2018 20:58:50 -0200</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
+    
+      <item>
+        <title>Por que Python?</title>
+        <description>&lt;Imagem alusiva=&quot;&quot; a=&quot;&quot; Monty=&quot;&quot; Python=&quot;&quot;&gt;
+Razões não faltam para utilizar Python em qualquer tipo de projeto. Na verdade, elas já são tão óbvias, tamanha a &quot;evangelização&quot; que a comunidade _pythônica_ realiza, que eu só vou deixar esse link de uma página que lista razões para utilizar Python, feita pelo ótimo site Python Help, para caso você ter entrado hoje no mundo da programação.
+Pode clicar, eu espero você terminar de ler...
+
+Terminou? Convencido? Confesso que ainda estou como [aquela música tema da Shina, a &quot;mulher cavaleiro&quot;](https://youtu.be/A9njgwnGzAY?t=1m2s).
+
+Não era para ouvir a música toda, só até o &quot;misto de sim e de não&quot;.
+
+Voltando, eu não desmereço nenhuma das razões supracitadas, muito pelo contrário, compartilho de todas as motivações de utilizar Python e digo mais: ótima para se escrever programas robustos de altíssimo porte... Desde que você a utilize em conjunto com C ou C++.
+
+É claro que existem sistemas de grande porte escritos em Python. Existe até um S.O. escrito em Python. Porém, são pontos fora da curva, desenvolvidos mais pelo desafio e pelo gosto de fazer, do que por uma escolha sensata e eficiente.
+
+Até aí eu só repeti o que os haters da linguagem dizem (performance, tipagem, blá blá blá). Mas convenhamos, não é todo dia que escrevemos programas para robôs cirúrgicos, sistemas de aeronaves, engines gráficas ou renderizadores. E mesmo que tenhamos que fazer um ou vários desses sistemas, você pode estender as funcionalidades deles com Python. É totalmente possível programar o que precisa ter um bom desempenho e baixo nível em uma linguagem que seja eficiente nisso e escrever o resto em Python, utilizando uma implementação até mais rápida, como a PyPy, em vez do CPython padrão.
+
+Mas aí é que eu discordo levemente da comunidade Python. Se eu quiser estender C ou C++, eu prefiro utilizar uma linguagem muito mais simples e menor. Sendo bem sincero, quanto mais tosca e minimalista, melhor.
+
+&amp;gt; Whitespace, anyone?
+
+Não pra tanto. Ainda quero um alto nível de expressividade, suporte ao paradigma funcional e uma estrutura de dados boa.
+&lt;/Imagem&gt;
+</description>
+        <pubDate>Sun, 04 Feb 2018 19:15:00 -0200</pubDate>
+        <link>http://localhost:4000//porque/2018/02/04/por-que-python.html</link>
+        <guid isPermaLink="true">http://localhost:4000//porque/2018/02/04/por-que-python.html</guid>
+        
+        
+        <category>porque</category>
+        
+      </item>
+    
+      <item>
+        <title>Por que Lua?</title>
+        <description>
+</description>
+        <pubDate>Sun, 04 Feb 2018 19:15:00 -0200</pubDate>
+        <link>http://localhost:4000//porque/2018/02/04/por-que-lua.html</link>
+        <guid isPermaLink="true">http://localhost:4000//porque/2018/02/04/por-que-lua.html</guid>
+        
+        
+        <category>porque</category>
+        
+      </item>
     
       <item>
         <title>Por que C++?</title>
