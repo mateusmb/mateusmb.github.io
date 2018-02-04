@@ -1,9 +1,9 @@
 name: Website do Mateus
-description: Dicas e tutoriais em C++, Python e Lua
-meta_description: "Website do Mateus, Dicas e tutoriais em C++, Python e Lua"
+description: Explicando magia com C++, Python e Lua
+meta_description: "A melhor aba do seu navegador"
 
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 logo: false
 paginate: 15
 baseurl: /
