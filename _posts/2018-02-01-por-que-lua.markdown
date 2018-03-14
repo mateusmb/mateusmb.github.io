@@ -26,7 +26,7 @@ Caso seja completamente iniciante, tenha em mente que muitas coisas serão um po
 # Instalação
 
 ## Windows
-Caso você esteja no Windows (masoquista você hein...) instale o Lua for Windows que já vem com tudo junto, inclusive um editor prontinho para você começar a rodar seus códigos.
+Caso você esteja no Windows (masoquista você hein...) instale o [Lua for Windows](https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/luaforwindows/LuaForWindows_v5.1.4-46.exe) que já vem com tudo junto, inclusive um editor prontinho para você começar a rodar seus códigos.
 
 A instalação é bem simples e intuitiva e, após realizada, é só você abrir o editor, escrever seu código e rodá-lo. Só atente que a versão do Lua nessa instalação é mais desatualizada que as versões do Linux.
 
@@ -744,8 +744,13 @@ menuPrincipal()
 
 Ufa! Terminamos nosso tour pela linguagem Lua. Esse exemplo cobre boa parte das *features* da linguagem e já serve como referência para você desenvolver outras coisas.
 
-É claro que é recomendadíssimo ler, pelo menos o tutorial da linguagem, ou adquirir os livros de referência escritos pela próprio equipe que mantém Lua.
+É claro que é recomendadíssimo ler, pelo menos o [tutorial oficial da linguagem](https://www.lua.org/pil/contents.html), ou adquirir os [livros de referência](https://www.lua.org/pil/) escritos pela própria equipe que mantém Lua.
 
-Como tarefa, altere nossa classe para que permita que mais músicas sejam adicionadas. Altere nosso programa principal, também, para permitir a listagem das músicas por banda. Você pode tornar o programa mais completo, verificando sempre se as entradas do usuário são válidas quando ele digita uma opção.
+Por último, deixo aqui uma lista de tarefas para você mesmo fazer:
+* Altere nossa classe para que permita que mais músicas sejam adicionadas;
+
+* Altere nosso programa principal para permitir a listagem das músicas por banda;
+
+* Verifique sempre se as entradas do usuário são válidas quando ele digita uma opção.
 
 É isto e até a próxima.
