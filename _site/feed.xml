@@ -5,111 +5,779 @@
     <description>Explicando magia com C++, Python e Lua</description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 04 Feb 2018 20:58:50 -0200</pubDate>
-    <lastBuildDate>Sun, 04 Feb 2018 20:58:50 -0200</lastBuildDate>
+    <pubDate>Tue, 13 Mar 2018 23:40:22 -0300</pubDate>
+    <lastBuildDate>Tue, 13 Mar 2018 23:40:22 -0300</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
-        <title>Por que Python?</title>
-        <description>&lt;Imagem alusiva=&quot;&quot; a=&quot;&quot; Monty=&quot;&quot; Python=&quot;&quot;&gt;
-Razões não faltam para utilizar Python em qualquer tipo de projeto. Na verdade, elas já são tão óbvias, tamanha a &quot;evangelização&quot; que a comunidade _pythônica_ realiza, que eu só vou deixar esse link de uma página que lista razões para utilizar Python, feita pelo ótimo site Python Help, para caso você ter entrado hoje no mundo da programação.
-Pode clicar, eu espero você terminar de ler...
+        <title>Um guia (não tão, mas quase) rápido de Lua</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://www.lua.org/images/lua25.gif&quot;&gt;&lt;img src=&quot;https://www.lua.org/images/lua25.gif&quot; title=&quot;lua&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-Terminou? Convencido? Confesso que ainda estou como [aquela música tema da Shina, a &quot;mulher cavaleiro&quot;](https://youtu.be/A9njgwnGzAY?t=1m2s).
+&lt;p&gt;&lt;a href=&quot;https://www.lua.org/&quot;&gt;Lua&lt;/a&gt; é uma linguagem de programação, desenvolvida aqui nesse país tropical, por uma equipe de desenvolvedores da PUC-RJ.&lt;/p&gt;
 
-Não era para ouvir a música toda, só até o &quot;misto de sim e de não&quot;.
+&lt;p&gt;Ela (a linguagem, não o satélite natural) foi criada em 1993 para auxiliar engenheiros da Petrobrás e acabou correndo pelo
+mundo nos anos seguintes e, até hoje, é a linguagem mais utilizada para scriptagem no mundo dos games.&lt;/p&gt;
 
-Voltando, eu não desmereço nenhuma das razões supracitadas, muito pelo contrário, compartilho de todas as motivações de utilizar Python e digo mais: ótima para se escrever programas robustos de altíssimo porte... Desde que você a utilize em conjunto com C ou C++.
+&lt;p&gt;As grandes vantagens de Lua são a sua sintaxe simples e poderosa, rapidez, tamanho enxuto e flexibilidade.&lt;/p&gt;
 
-É claro que existem sistemas de grande porte escritos em Python. Existe até um S.O. escrito em Python. Porém, são pontos fora da curva, desenvolvidos mais pelo desafio e pelo gosto de fazer, do que por uma escolha sensata e eficiente.
+&lt;p&gt;Mas o “brilho da Lua” vem de sua rápida prototipagem (você vai ver que eu vou fazer vários exemplos de código sem precisar de muito setup)
+e, principalmente, da possibilidade de embutir a linguagem em projetos feitos em qualquer outra linguagem.&lt;/p&gt;
 
-Até aí eu só repeti o que os haters da linguagem dizem (performance, tipagem, blá blá blá). Mas convenhamos, não é todo dia que escrevemos programas para robôs cirúrgicos, sistemas de aeronaves, engines gráficas ou renderizadores. E mesmo que tenhamos que fazer um ou vários desses sistemas, você pode estender as funcionalidades deles com Python. É totalmente possível programar o que precisa ter um bom desempenho e baixo nível em uma linguagem que seja eficiente nisso e escrever o resto em Python, utilizando uma implementação até mais rápida, como a PyPy, em vez do CPython padrão.
+&lt;p&gt;Você pode ter um programa feito em C ou até mesmo Python, por exemplo, que fazem os trabalhos mais sujos, por assim dizer, e estender as funcionalidades do programa em Lua, para adicionar mais features e garantir mais flexibilidade.&lt;/p&gt;
 
-Mas aí é que eu discordo levemente da comunidade Python. Se eu quiser estender C ou C++, eu prefiro utilizar uma linguagem muito mais simples e menor. Sendo bem sincero, quanto mais tosca e minimalista, melhor.
+&lt;p&gt;Esse guia é destinado para iniciantes em programação. Pessoas que já tiveram algum contato com qualquer linguagem vão usufruir bastante deste tutorial.&lt;/p&gt;
 
-&amp;gt; Whitespace, anyone?
+&lt;p&gt;Caso seja completamente iniciante, tenha em mente que muitas coisas serão um pouco nebulosas. A dica é continuar buscando materiais na internet e praticar tudo que lê.&lt;/p&gt;
 
-Não pra tanto. Ainda quero um alto nível de expressividade, suporte ao paradigma funcional e uma estrutura de dados boa.
-&lt;/Imagem&gt;
+&lt;h1 id=&quot;instalação&quot;&gt;Instalação&lt;/h1&gt;
+
+&lt;h2 id=&quot;windows&quot;&gt;Windows&lt;/h2&gt;
+&lt;p&gt;Caso você esteja no Windows (masoquista você hein…) instale o Lua for Windows que já vem com tudo junto, inclusive um editor prontinho para você começar a rodar seus códigos.&lt;/p&gt;
+
+&lt;p&gt;A instalação é bem simples e intuitiva e, após realizada, é só você abrir o editor, escrever seu código e rodá-lo. Só atente que a versão do Lua nessa instalação é mais desatualizada que as versões do Linux.&lt;/p&gt;
+
+&lt;h2 id=&quot;linux&quot;&gt;Linux&lt;/h2&gt;
+&lt;p&gt;Na maioria das distribuições Linux (onde sua vida é mais fácil) você pode encontrar Lua diretamente no seu terminal. Apenas digite lua no terminal e comece a brincar.
+Caso você não tenha Lua instalado, digite os comandos a seguir, de acordo com a sua distribuição.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;No Ubuntu, Debian, Mint e família:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install lua&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;No Arch Linux, Antergos, Manjaro e família:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo pacman -S lua&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Caso Lua não esteja disponível no seu gerenciador de pacotes, compile a linguagem seguindo o guia abaixo.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Instale as dependências&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Ubuntu, Debian, Mint e família:&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install build-essential libreadline5-dev curl&lt;/code&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Arch Linux, Antergos, Manjaro e família:&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo pacman -S readline curl&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Os comandos abaixo servem para todas as distribuições Linux.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Baixe a linguagem compactada&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd &amp;amp;&amp;amp; curl -R -O http://www.lua.org/ftp/lua-5.3.4.tar.gz&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Extraia o conteúdo da pasta&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tar zxf lua-5.3.4.tar.gz&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Entre no diretório extraído&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd lua-5.3.4&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compile (é bem rápido)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make linux test&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;O executável do Lua ficará na pasta src. Para ter o executável em qualquer local do seu sistema de arquivos, execute:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo make install&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;mac-os&quot;&gt;Mac OS&lt;/h2&gt;
+&lt;p&gt;Você pode instalar Lua no seu computador chique através do homebrew. Após instalar e configurar o homebrew, execute:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;brew install lua&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Ou você pode fazer os mesmos passos da compilação do Linux, excluindo a parte de instalar as dependências e compilando com:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make macosx test&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;E depois:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo make install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://imgflip.com/i/26c8iz&quot;&gt;&lt;img src=&quot;https://i.imgflip.com/26c8iz.jpg&quot; title=&quot;vamo logo&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;mãos-à-obra&quot;&gt;Mãos à obra!&lt;/h1&gt;
+
+&lt;p&gt;Para não nos estendermos num manual (muito) chato, vamos implementar algo bem legal e que vai nos ajudar a ter uma visão geral da linguagem:
+uma lista de nossas bandas favoritas!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://imgflip.com/i/26c99s&quot;&gt;&lt;img src=&quot;https://i.imgflip.com/26c99s.jpg&quot; title=&quot;made at imgflip.com&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Nosso programa deve permitir adicionarmos e removermos nossas bandas favoritas em uma lista. Cada banda é composta pelo seu nome e pela música que mais gostamos da banda.&lt;/p&gt;
+
+&lt;p&gt;Também devemos permitir listar nossas bandas adicionadas e, para incluirmos um “desafiozinho” a mais, vamos também listar nossas bandas pelo nome em ordem alfabética e
+pelos nomes das nossas músicas favoritas de cada banda em ordem alfabética.&lt;/p&gt;
+
+&lt;p&gt;Comece abrindo o terminal no Linux ou no Mac OS. Digite Lua no terminal e aperte enter. Você deve ver o seguinte no seu terminal:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Lua 5.3.4  Copyright (C) 1994-2017 Lua.org, PUC-Rio&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Você pode ver uma versão diferente, dependendo da distribuição que você usa. Caso veja uma mensagem de erro, revise os passos da instalação.&lt;/p&gt;
+
+&lt;p&gt;No Windows, você pode usar o interpretador que já vem na instalação. Ele também abre um terminal parecido com o do Linux/Mac OS.&lt;/p&gt;
+
+&lt;p&gt;Se você já está acostumado com Python, Ruby, Perl ou outra linguagem interpretada, com certeza já sabe que pode executar comandos no interpretador e testar coisas.&lt;/p&gt;
+
+&lt;p&gt;Isso é importante para prototiparmos ideias de forma mais rápida. O lado ruim é que após terminarmos a execução do interpretador, perdemos nosso trabalho.&lt;/p&gt;
+
+&lt;p&gt;De qualquer forma, vamos testar algumas ideias e pegar o &lt;strong&gt;feeling&lt;/strong&gt; da linguagem. Digite os comandos abaixo e, ao fim, aperte enter para ver o resultado.&lt;/p&gt;
+
+&lt;p&gt;Se você receber erros, revise o comando e cheque se não cometeu algum erro de digitação.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://imgflip.com/i/26c9ef&quot;&gt;&lt;img src=&quot;https://i.imgflip.com/26c9ef.jpg&quot; title=&quot;made at imgflip.com&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos começar &lt;em&gt;declarando&lt;/em&gt; uma lista com algumas de nossas bandas. Você pode colocar as suas bandas favoritas, não precisa colocar as mesmas que as minhas.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; bandas = {'Avenged Sevenfold', 'Gorillaz', 'Arctic Monkeys'}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Ps.: O caracter “&amp;gt;” não precisa ser digitado. Isso é só para lembrar que você deve digitar o comando no interpretador Lua.&lt;/p&gt;
+
+&lt;p&gt;Depois que você apertou enter, pode ocorrer alguma confusão pois não aparece nada. Apenas pula a linha e mostra novamente o caracter “&amp;gt;”.&lt;/p&gt;
+
+&lt;p&gt;Não se preocupe com isso. Você fez certo. O que aconteceu é que você declarou uma variável chamado “bandas” contendo os valores ‘Avenged Sevenfold’, ‘Gorillaz’ e
+‘Arctic Monkeys’. Caso já tenha sido esperto, você digitou as suas bandas favoritas dentro de cada aspas simples ‘’.&lt;/p&gt;
+
+&lt;p&gt;Falando de uma forma mais esmiuçada, o que acabou de acontecer foi que você pediu para o computador pegar um endereço da sua memória RAM e guardá-lo especialmente para você. Esse endereço de memória tem um rótulo (variável) chamado “bandas”, para ser mais fácil usá-lo depois. Além disso, o endereço de memória reservado está com os valores que digitamos entre aspas simples &lt;em&gt;’‘&lt;/em&gt;, dentro das chaves &lt;em&gt;{}&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;É claro que se finalizarmos a execução do interpretador ou desligarmos o computador, esse endereço de memória reservado será reutilizado para outra coisa que o computador achar necessário ou mesmo ficará disponível para ser utilizado. Dos 2,4,8,16 ou mais Gigabytes de memória do seu computador, alguns bytes foram
+utilizados para guardar esses valores que digitamos. Não se preocupe, não estamos mais nos anos 80 ou 90 e não precisamos mais nos preocupar tanto em acabar a memória disponível.&lt;/p&gt;
+
+&lt;p&gt;Para esses endereços de memória serem utilizados de forma mais eficiente, as linguagens de programação definem tipos específicos para cada variável que criamos.&lt;/p&gt;
+
+&lt;p&gt;Não precisamos dizer de quais tipos serão nossas variáveis. A linguagem Lua já deduz o tipo pelo valor que atribuímos na variável.&lt;/p&gt;
+
+&lt;p&gt;Podemos ter tipos que representam números, textos, valores binários, listas, funções, entre outros.&lt;/p&gt;
+
+&lt;p&gt;No caso das bandas, o tipo da variável é uma tabela. A tabela é o único tipo composto/estrutura de dados que temos em Lua. Podemos utilizar tabelas para representarmos listas, hashmaps, vetores, arranjos,
+dicionários. Não se preocupe se alguns desses termos são grego para você. Com o passar do tempo, você se acostumará com esses termos. Na nossa tabela, guardamos valores
+que são do tipo &lt;em&gt;string&lt;/em&gt;, que nada mais é que uma sequência de caracteres (texto).&lt;/p&gt;
+
+&lt;p&gt;Vamos ver o valor que temos na variável bandas:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; print(bandas)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;O comando “print” escreve na tela o valor que temos na(s) variável(is) que colocamos entre os parênteses “()”. O resultado deve ter sido algo como “table: 0x5607b10fbc10”. Apesar de você ter esperado os nomes das bandas que colocamos, o que foi retornado é o endereço
+da memória onde está nossa tabela. O nome ‘bandas’ é só um ponteiro, uma referência a esse endereço. Para vermos os valores que temos, é necessário passarmos por cada
+item da lista e mostrarmos eles. Vamos utilizar os comandos de repetição da linguagem então.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; for i=1, #bandas do print(bandas[i]) end&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://imgflip.com/i/26c94l&quot;&gt;&lt;img src=&quot;https://i.imgflip.com/26c94l.jpg&quot; title=&quot;made at imgflip.com&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos por partes. Caso você saiba inglês, mesmo que pouco, você deve ter entendido o que aconteceu.&lt;/p&gt;
+
+&lt;p&gt;Anyway, em poucas palavras, eu pedi para que cada elemento da tabela “bandas” fosse escrito na tela do interpretador, que foi o que aconteceu.&lt;/p&gt;
+
+&lt;p&gt;A palavra &lt;em&gt;for&lt;/em&gt; é reservada pela linguagem e serve para dizermos que queremos repetir um comando por algumas vezes. Eu especifiquei quantas vezes logo depois do &lt;em&gt;for&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Eu declarei uma variável de nome &lt;em&gt;i&lt;/em&gt; que recebe o valor &lt;em&gt;1&lt;/em&gt;, ou seja, o tipo da variável i é numérico. Depois da vírgula &lt;em&gt;,&lt;/em&gt;, vem um &lt;em&gt;#&lt;/em&gt; seguido da minha variável
+bandas, que é a lista. Esse &lt;em&gt;#&lt;/em&gt; está dizendo que em vez de utilizar o valor de &lt;em&gt;bandas&lt;/em&gt;, eu quero utilizar o tamanho numérico da lista, ou melhor, a quantidade de itens
+que minha lista tem. No caso da minha, são três. Para ficar mais claro, digite o seguinte.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; print(#bandas)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Esse número representa a quantidade de itens, da nossa lista, ou seja o tamanho dela.&lt;/p&gt;
+
+&lt;p&gt;Então no &lt;em&gt;for&lt;/em&gt;, eu estou dizendo que quero que a variável &lt;em&gt;i&lt;/em&gt; comece em &lt;em&gt;1&lt;/em&gt; e incremente esse valor até chegar em &lt;em&gt;3&lt;/em&gt;, que é o tamanho da lista.
+A cada incremento, é(são) executado(s) o(s) comando(s) que vai(ão) entre &lt;em&gt;do&lt;/em&gt; e &lt;em&gt;end&lt;/em&gt;. No nosso caso, é mostrado na tela o valor que está no índice &lt;em&gt;i&lt;/em&gt; da lista &lt;em&gt;bandas&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;O índice, ou posição, que é o valor que vai dentro dos colchetes &lt;em&gt;[]&lt;/em&gt; representa um rótulo ou número o qual podemos acessar o valor que temos naquela posição da tabela.&lt;/p&gt;
+
+&lt;p&gt;No caso da nossa tabela, cada nome de banda é referenciado por um número, na sequência que colocamos os nomes, começando do &lt;em&gt;1&lt;/em&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;‘Avenged Sevenfold’&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;‘Gorillaz’&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;‘Arctic Monkeys’&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Como podemos ter qualquer tipo de valor na tabela e não vamos lembrar de cor onde está cada nome, pois podemos ter um monte, acessamos cada um pelo seu rótulo.&lt;/p&gt;
+
+&lt;p&gt;Poderíamos ter feito algo assim:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bandas = {'banda1': 'Avenged Sevenfold', 'banda2': 'Gorillaz', etc}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;E acessarmos pelos rótulos ‘banda1’, ‘banda2’, etc.&lt;/p&gt;
+
+&lt;p&gt;Então, no &lt;em&gt;for&lt;/em&gt; começamos com &lt;em&gt;i&lt;/em&gt; em &lt;em&gt;1&lt;/em&gt; e mostramos na tela o valor que &lt;em&gt;bandas&lt;/em&gt; tem na posição &lt;em&gt;1&lt;/em&gt;. Depois, &lt;em&gt;i&lt;/em&gt; fica com valor &lt;em&gt;2&lt;/em&gt; e mostramos o valor dessa
+posição em &lt;em&gt;bandas&lt;/em&gt;. Por fim, &lt;em&gt;i&lt;/em&gt; tem &lt;em&gt;3&lt;/em&gt; e mostra o último elemento da tabela. Como &lt;em&gt;#bandas&lt;/em&gt; vai até &lt;em&gt;3&lt;/em&gt;, o &lt;em&gt;for&lt;/em&gt; termina aí.&lt;/p&gt;
+
+&lt;p&gt;Nosso programa já guarda nossas bandas favoritas, porém faltam alguns detalhes. Precisamos adicionar quantas bandas quisermos, remover quem não gostamos mais e precisamos
+dar um jeito de colocarmos as nossas músicas favoritas, também, e relacionarmos com as bandas.&lt;/p&gt;
+
+&lt;p&gt;Poderíamos continuar colocando novas bandas na nossa lista, fazendo o seguinte.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; table.insert(bandas,'The Killers')&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; table.insert(bandas,'Coldplay')&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;E assim sucessivamente. Se você executar o &lt;em&gt;for&lt;/em&gt; novamente.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; for i=1, #bandas do print(bandas[i]) end&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Verá todas as nossas bandas, incluindo as duas que coloquei a pouco. O comando &lt;em&gt;table.insert()&lt;/em&gt; insere na tabela que colocamos primeiro entre os parênteses o valor que colocamos depois da vírgula. O valor de &lt;em&gt;#bandas&lt;/em&gt; aumentou para &lt;em&gt;5&lt;/em&gt;, no nosso caso, pois a quantidade de itens aumentou. Podemos aumentar indefinidamente, o quanto quisermos, até estourar a memória, o que pode ser muita coisa.&lt;/p&gt;
+
+&lt;p&gt;Para removermos uma banda da lista, temos que usar o comando &lt;em&gt;table.remove()&lt;/em&gt;, informando a lista e o rótulo onde está o valor que queremos remover.&lt;/p&gt;
+
+&lt;p&gt;Por exemplo.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; table.remove(bandas, 4)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Remove ‘The Killers’, pois esta banda está na posição &lt;em&gt;4&lt;/em&gt; da tabela &lt;em&gt;bandas&lt;/em&gt;. Você pode executar o &lt;em&gt;for&lt;/em&gt; novamente para ver a lista sem a banda que retiramos.&lt;/p&gt;
+
+&lt;p&gt;So far, so good, porém, ainda não temos nossas músicas favoritas e o pior: quando sairmos do interpretador, nosso programa estará perdido.&lt;/p&gt;
+
+&lt;p&gt;Vamos então, criar nosso programa de fato, para que seja usável em qualquer momento.&lt;/p&gt;
+
+&lt;p&gt;Começaremos criando um arquivo com extensão .lua que será executado pelo interpretador lua. Esse arquivo conterá nosso programa. Mas antes de partirmos para o programa
+de fato, temos que criar uma forma de representarmos as bandas com o nome delas e a música favorita de cada uma. Porém, em Lua não temos o tipo Banda (e, acredito eu, nem outra linguagem de programação). Sendo assim, precisamos usar um recurso de programação chamado Orientação a Objetos.&lt;/p&gt;
+
+&lt;p&gt;Nesse paradigma, podemos criar variáveis que são de tipos que nós mesmo definirmos. Para isso, definimos como nosso tipo será em uma estrutura chamada &lt;em&gt;Classe&lt;/em&gt;, que nada mais é que uma fôrma, um molde que servirá de modelo para nosso tipo.&lt;/p&gt;
+
+&lt;p&gt;Lua não é Orientada a Objetos, por padrão, mas podemos usar artifícios presentes nas tabelas para alterarmos o comportamento delas e simularmos classes.&lt;/p&gt;
+
+&lt;p&gt;Vamos lá, abra seu editor favorito (o meu é o Atom). Não pode ser Word, Writer, nem derivados. Já salve o seu documento em branco com o nome &lt;em&gt;banda.lua&lt;/em&gt; em alguma pasta acessível. Comece definindo a classe exatamente desse jeito.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Banda = {}
+Banda.__index = Banda
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Definimos uma tabela chamada Banda e ela está vazia. Vamos colocar os valores conforme desenvolvermos essa classe. A classe nada mais é que essa tabela, com
+comportamento que vamos definindo. O primeiro comportamento que definimos é a próxima linha que contém o nome da classe/tabela (Banda) seguido de ponto &lt;em&gt;.&lt;/em&gt; e depois com
+dois &lt;strong&gt;underline&lt;/strong&gt; juntos (“&lt;em&gt;” e “&lt;/em&gt;” juntos), seguido da palavra index.&lt;/p&gt;
+
+&lt;p&gt;Toda tabela em Lua tem essa variável chamada &lt;em&gt;__index&lt;/em&gt; que especifica o seguinte: caso criemos uma tabela vazia, Lua procurará pelo valor de &lt;em&gt;__index&lt;/em&gt; que no caso é
+a classe &lt;em&gt;Banda&lt;/em&gt;. Fazemos isso porque as variáveis que criaremos do tipo &lt;em&gt;Banda&lt;/em&gt;, ou seja, os objetos da classe &lt;em&gt;Banda&lt;/em&gt; podem começar vazios e teremos que usar comportamentos definidos na classe &lt;em&gt;Banda&lt;/em&gt;. Para que não tenhamos uma mensagem de erro porque acessaremos valores que não existem nas tabelas criadas, dizemos que, caso não seja encontrado nada no objeto, Lua terá que procurar por valores que estão na classe &lt;em&gt;Banda&lt;/em&gt;. É confuso, mas ficará menos daqui a pouco.&lt;/p&gt;
+
+&lt;p&gt;Continue escrevendo nossa classe. Adicione as linhas abaixo depois de &lt;em&gt;Banda.__index = Banda&lt;/em&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Banda.new(nome,musica_favorita)
+    local self = setmetatable({},Banda)
+    self.nome = nome or ''
+    self.musica_favorita = musica_favorita or ''
+    return self
+end
+
+function Banda.setNome(self, nome)
+    self.nome = nome
+end
+
+function Banda.setMusicaFavorita(self, musica_favorita)
+    self.musica_favorita = musica_favorita
+end
+
+function Banda.getNome(self)
+    return self.nome
+end
+
+function Banda.getMusicaFavorita(self)
+    return self.musica_favorita
+end
+
+function Banda.print(self)
+    print(self:getNome() .. &quot; - &quot; .. self:getMusicaFavorita())
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Agora foi bastante coisa!&lt;/p&gt;
+
+&lt;p&gt;O que você deve saber é que estamos criando funções para nossa classe. Funções são tipos em Lua que nada mais são que uma sequência de comandos que podem ser chamados a qualquer momento, apenas chamando pelo seu nome. As funções podem retornar valores que podem ser atribuídos a outras variáveis e, também, podem receber valores para serem trabalhados.&lt;/p&gt;
+
+&lt;p&gt;Estamos criando várias funções que estarão na classe &lt;em&gt;Banda&lt;/em&gt;. A sintaxe &lt;em&gt;Classe.função&lt;/em&gt;, como em &lt;em&gt;Banda.new&lt;/em&gt;, é a mesma coisa que:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Banda = {function new(nome,musica_favorita), etc }&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Isso mesmo! Tabelas podem ter funções como valores. Legal, né!&lt;/p&gt;
+
+&lt;p&gt;A função &lt;em&gt;new&lt;/em&gt; será chamado quando criarmos nossos objetos. Poderemos definir já na criação o nome e a música favorita de nossas bandas.&lt;/p&gt;
+
+&lt;p&gt;Na função &lt;em&gt;new&lt;/em&gt; recebemos o nome da banda e a música favorita, pelas variáveis &lt;em&gt;nome&lt;/em&gt; e &lt;em&gt;musica_favorita&lt;/em&gt;. Na primeira linha da função definimos uma tabela chamada &lt;em&gt;self&lt;/em&gt;. Essa tabela representa as variáveis de nosso objeto. Para especificarmos que só aceitaremos coisas especificadas na própria classe &lt;em&gt;Banda&lt;/em&gt;, utilizamos a função
+setmetatable(). Essa função recebe como parâmetros uma tabela que sofrerá alterações de comportamento e outra tabela que servirá de modelo para essas alterações. No caso, dizemos que nossa tabela &lt;em&gt;self&lt;/em&gt; começa vazia ({}) e a classe &lt;em&gt;Banda&lt;/em&gt; é a tabela que definirá o comportamento de &lt;em&gt;self&lt;/em&gt;. É aí que está a jogada da “Orientação a objetos” de Lua.&lt;/p&gt;
+
+&lt;p&gt;Na sequência, colocamos as variáveis &lt;em&gt;nome&lt;/em&gt; e &lt;em&gt;musica_favorita&lt;/em&gt; dentro da tabela &lt;em&gt;self&lt;/em&gt;. Atribuímos o valor dos parâmetros que recebemos na função ou, caso não sejam passados, são inicializados vazios (‘’). Retornamos self no fim para o objeto.&lt;/p&gt;
+
+&lt;p&gt;As próximas funções definem como serão gerenciados os atributos &lt;em&gt;nome&lt;/em&gt; e &lt;em&gt;musica_favorita&lt;/em&gt; da nossa classe. Os métodos que começam com &lt;em&gt;set&lt;/em&gt; permitem que troquemos os valores de nossos atributos por parâmetros que passamos na função. Os métodos que começam com &lt;em&gt;get&lt;/em&gt; são usados para retornarmos os valores que estão nos atributos da nossa classe. Por fim, definimos uma função chamada &lt;em&gt;print&lt;/em&gt; que mostra na tela os valores dos atributos.&lt;/p&gt;
+
+&lt;p&gt;Salve e feche o arquivo &lt;em&gt;banda.lua&lt;/em&gt; e vamos testar nossa classe.&lt;/p&gt;
+
+&lt;p&gt;Abra o terminal e digite lua novamente. Vamos testar no interpretador.&lt;/p&gt;
+
+&lt;p&gt;Para usarmos nossa classe recém-criada, navegue pelos diretórios até entrar na pasta onde salvamos nosso arquivo &lt;em&gt;banda.lua&lt;/em&gt; e digite o seguinte:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;lua&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;E dentro do interpretador:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; require &quot;banda&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Esse comando procurará por arquivos chamado banda.lua na pasta atual. Caso encontre, poderemos usar nossa classe.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;a7x = Banda.new('Avenged Sevenfold', 'A Little Piece of Heaven')&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Estamos criando um objeto chamado a7x e chamamos a função &lt;em&gt;new&lt;/em&gt; da classe &lt;em&gt;Banda&lt;/em&gt;. Agora temos um objeto que representa uma Banda.
+Mostre o que temos na nossa banda usando o comando &lt;em&gt;print&lt;/em&gt; do objeto.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; a7x:print()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;É mostrado exatamente o que definimos no nosso objeto. Utilizamos “:” porque na nossa classe Banda, cada função tem o primeiro parâmetro &lt;em&gt;self&lt;/em&gt;, isto é, a tabela que representa nosso objeto. Para não termos que colocar toda vez o nome do nosso objeto entre parênteses cada vez que usamos as funções, o “:” é usado como um atalho para isso.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://imgflip.com/i/26c9n4&quot;&gt;&lt;img src=&quot;https://i.imgflip.com/26c9n4.jpg&quot; title=&quot;made at imgflip.com&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos criar mais uma banda.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; gorillaz = Banda.new()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Perceba que criamos ela vazia. Vamos verificar o conteúdo dela com o comando &lt;em&gt;print&lt;/em&gt; do objeto:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; gorillaz:print()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Foi mostrado apenas um “-“ porque não definimos o nome nem a música favorita.&lt;/p&gt;
+
+&lt;p&gt;Faça isso agora com as funções &lt;em&gt;set&lt;/em&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; gorillaz:setNome('Gorillaz')&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; gorillaz:setMusicaFavorita('La Mañana')&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;E, de novo agora:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt; gorillaz:print()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora já podemos até inserir nossas bandas em uma lista.&lt;/p&gt;
+
+&lt;p&gt;Mas vamos aproveitar que estamos &lt;em&gt;pro&lt;/em&gt; e vamos já criar um programa que gerencie isso para gente.&lt;/p&gt;
+
+&lt;p&gt;Abra o seu editor de novo, crie um novo arquivo chamado &lt;em&gt;BandasFavoritas.lua&lt;/em&gt; e salve-o na mesma pasta de &lt;em&gt;banda.lua&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Vamos criar várias funções que serão chamadas conforme a operação que desejamos fazer.&lt;/p&gt;
+
+&lt;p&gt;Coloque o comando que indica que usaremos a classe Banda no nosso código.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;require &quot;banda&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Comecemos criando uma tabela que representará a lista de bandas:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;lista_bandas = {}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;E agora, vamos criar uma função que permita adicionar bandas nessa lista:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function adicionarBanda()
+    repeat
+        print(&quot;Digite o nome da banda&quot;)
+        nome_banda = io.read()
+        print(&quot;Digite a sua música favorita dessa banda&quot;)
+        musica_favorita = io.read()
+        table.insert(lista_bandas, Banda.new(nome_banda, musica_favorita))
+        print(&quot;Deseja adicionar mais uma banda? s/n&quot;)
+        opcao = io.read()
+    until opcao ~= 's'
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nessa função, estamos operando em uma repetição diferente do nosso &lt;em&gt;for&lt;/em&gt;. O comando &lt;em&gt;repeat&lt;/em&gt; repete a execução das linhas que escrevemos até que uma condição seja satisfeita.&lt;/p&gt;
+
+&lt;p&gt;A condição a ser satisfeita é definida em &lt;em&gt;until&lt;/em&gt;. No caso, verificamos se o valor da variável &lt;em&gt;opcao&lt;/em&gt; é diferente do caracter ‘s’. Caso seja, a execução da função será finalizada. Pedimos pelo nome e música favorita da banda e guardamos em variáveis que serão utilizadas para criar nossos objetos e inserí-los na lista. Para receber entradas do teclado, utilizamos a função &lt;em&gt;read()&lt;/em&gt; de &lt;em&gt;io&lt;/em&gt;. Em vez de darmos um nome cada vez que criamos um objeto, utilizamos a função &lt;em&gt;new()&lt;/em&gt; da classe &lt;em&gt;Banda&lt;/em&gt;, direto na inserção na lista, criando vários objetos sem nome, que serão referenciados pelos indíces na tabela.&lt;/p&gt;
+
+&lt;p&gt;Vamos agora criar uma função que mostra os elementos da nossa lista. Mas antes, criaremos uma função que verificará se a lista não está vazia. Caso esteja, retornará o valor binário &lt;em&gt;true&lt;/em&gt;, senão &lt;em&gt;false&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function isListaVazia()
+    if #lista_bandas == 0 then
+        return true
+    else
+        return false
+    end
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Seja esperto. Estamos vendo se o tamanho da lista é &lt;em&gt;0&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Agora sim, listaremos as bandas.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function listarBandas()
+    repeat
+        if isListaVazia() then
+            print(&quot;A lista está vazia&quot;)
+            break
+        else
+            print(&quot;Lista da suas bandas favoritas&quot;)
+            for i=1,#lista_bandas do
+                lista_bandas[i]:print()
+            end
+            print(&quot;Deseja listar novamente? s/n&quot;)
+            opcao = io.read()
+        end
+    until opcao ~= 's'
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Utilizamos o mesmo laço de repetição, caso o usuário quiser listar novamente. Verificamos numa estrutura condicional, o &lt;em&gt;if&lt;/em&gt; &lt;em&gt;else&lt;/em&gt;, se nossa lista está vazia, utilizando a função que fizemos antes. Mostramos a mensagem “A lista está vazia” se ela esitver vazia (duh), senão, iteramos na nossa lista com o &lt;em&gt;for&lt;/em&gt; utilizando a função &lt;em&gt;print()&lt;/em&gt; dos nossos objetos da classe &lt;em&gt;Banda&lt;/em&gt; que estão em cada posição da lista de bandas.&lt;/p&gt;
+
+&lt;p&gt;Até agora nós só criamos as funções. Se executarmos nosso arquivo &lt;em&gt;BandasFavoritas.lua&lt;/em&gt;, não acontecerá nada, pois não estamos chamando nossas funções.&lt;/p&gt;
+
+&lt;p&gt;Para mantermos a organização, vamos criar uma função chamada &lt;em&gt;menuPrincipal()&lt;/em&gt; que será a única função chamada e apresentará opções para escolhermos qual função desejamos chamar.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function menuPrincipal()
+    while(true) do
+        print(&quot;Programa para gerenciar suas bandas favoritas&quot;)
+        print(&quot;Digite o número da opção&quot;)
+        print(&quot;1 - Listar bandas&quot;)
+        print(&quot;2 - Listar bandas por nome&quot;)
+        print(&quot;3 - Listar bandas por música favorita&quot;)
+        print(&quot;4 - Adicionar banda&quot;)
+        print(&quot;5 - Remover banda&quot;)
+        print(&quot;0 - Sair&quot;)
+        opcao = io.read()
+
+        if opcao == '1' then
+            listarBandas()
+        elseif opcao == '2' then
+            listarBandasNome()
+        elseif opcao == '3' then
+            listarBandasMusicaFavorita()
+        elseif opcao == '4' then
+            adicionarBanda()
+        elseif opcao == '5' then
+            removerBanda()
+        elseif opcao == '0' then
+            break
+        else
+            print(&quot;Opção inválida&quot;)
+        end
+    end
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Percebe que utilizamos uma estrutura de repetição nova. O &lt;em&gt;while&lt;/em&gt; executa as linhas de &lt;em&gt;do&lt;/em&gt; até o último &lt;em&gt;end&lt;/em&gt; enquanto a condição especificada dentro dos parênteses for satisfeita. No caso, colocamos um valor binário &lt;em&gt;true&lt;/em&gt; para que ele seja executado para sempre. O único jeito desse “laço ser quebrado” é com um comando chamado &lt;em&gt;break&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Se você olhar no último &lt;em&gt;elseif&lt;/em&gt;, verificamos se a &lt;em&gt;opcao&lt;/em&gt; é igual a &lt;em&gt;0&lt;/em&gt;. Caso seja, o &lt;em&gt;break&lt;/em&gt; é executado, encerrando o &lt;em&gt;while&lt;/em&gt; e a função. Perceba também a diferença entre “=” e “==”: o primeiro é &lt;em&gt;atribuição&lt;/em&gt; e o segundo é &lt;em&gt;comparação&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Temos várias opções de operações. As nossas funções recém-criadas estão nas opções 1 e 4. Já aproveitei para listar as próximas funções e é isso que faremos.&lt;/p&gt;
+
+&lt;p&gt;Vamos começar removendo uma banda.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function removerBanda()
+    repeat
+        if isListaVazia() then
+            print(&quot;A lista está vazia&quot;)
+            break
+        else
+            print(&quot;Digite o número da banda que você deseja remover&quot;)
+            for i=1,#lista_bandas do
+                print(i .. &quot; - &quot; .. lista_bandas[i]:getNome())
+            end
+            opcao = tonumber(io.read())
+            if opcao &amp;lt; 1 or opcao &amp;gt; #lista_bandas then
+                print(&quot;Opção inválida!&quot;)
+                break
+            end
+
+            table.remove(lista_bandas, opcao)
+            print(&quot;Deseja remover mais uma banda? s/n&quot;)
+            opcao = io.read()
+        end
+    until opcao ~= 's'
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Usamos novamente nossa função que verifica se uma lista está vazia, para impedirmos que o usuário tente remover bandas sem nem ter bandas na lista. O &lt;em&gt;break&lt;/em&gt; também pode ser utilizado no &lt;em&gt;repeat&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Primeiro listamos nossas bandas. Poderíamos ter usado nossa função que lista as bandas, mas percebe que inserimos o índice na frente de cada nome. Além disso, não estamos mostrando as músicas favoritas pois não é tão necessário.&lt;/p&gt;
+
+&lt;p&gt;Recebemos o índice que o usuário deseja remover e passamos na função &lt;em&gt;table.insert()&lt;/em&gt;. Fazemos mais uma verificação para checar se a opção digitada está dentro da quantidade de bandas na lista. O usuário pode remover quantas bandas quiser, enquanto a lista tiver bandas e enquanto ele digitar ‘s’, da mesma forma que inserimos.&lt;/p&gt;
+
+&lt;p&gt;Agora vamos fazer nossas últimas funções, que são listar as bandas por ordem dos nomes e por ordem das músicas favoritas, alfabeticamente.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function listarBandasNome()
+    repeat
+        if isListaVazia() then
+            print(&quot;A lista está vazia&quot;)
+            break
+        else
+            print(&quot;Lista das bandas por nome&quot;)
+            local t = {}
+            for k,v in ipairs(lista_bandas) do table.insert(t, v) end
+            table.sort(t, function(a,b) return a:getNome()&amp;lt;b:getNome() end)
+            for i=1,#t do
+                t[i]:print()
+            end
+            t = nil
+            print(&quot;Deseja listar novamente? s/n&quot;)
+            opcao = io.read()
+        end
+    until opcao ~= 's'
+end
+
+function listarBandasMusicaFavorita()
+    repeat
+        if isListaVazia() then
+            print(&quot;A lista está vazia&quot;)
+            break
+        else
+            print(&quot;Lista das bandas por música favorita&quot;)
+            local t = {}
+            for k,v in ipairs(lista_bandas) do table.insert(t, v) end
+            table.sort(t, function(a,b) return a:getMusicaFavorita()&amp;lt;b:getMusicaFavorita() end)
+            for i=1,#t do
+                t[i]:print()
+            end
+            t = nil
+            print(&quot;Deseja listar novamente? s/n&quot;)
+            opcao = io.read()
+        end
+    until opcao ~= 's'
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As duas funções são bem parecidas. Ainda utilizamos nossas verificações de lista vazia e dentro de laços de repetição.&lt;/p&gt;
+
+&lt;p&gt;Porém, nossa listagem é bem diferente. Primeiro, criamos uma tabela vazia &lt;em&gt;t&lt;/em&gt;. Depois, copiamos o conteúdo da nossa lista para essa tabela &lt;em&gt;t&lt;/em&gt; em um &lt;em&gt;for&lt;/em&gt; diferente.&lt;/p&gt;
+
+&lt;p&gt;Dessa vez, declaramos duas variáveis &lt;em&gt;k&lt;/em&gt; e &lt;em&gt;v&lt;/em&gt; que representam cada índice (chave) e seu respectivo valor (value) da tabela. Esse tipo de &lt;em&gt;for&lt;/em&gt; é muito útil em tabelas que não tem valores referenciados por índices numéricos. Coloquei esse exemplo aqui para que você conheça mais essa feature e para variar um pouco.&lt;/p&gt;
+
+&lt;p&gt;Inserimos na tabela &lt;em&gt;t&lt;/em&gt;, cada valor &lt;em&gt;v&lt;/em&gt; que iteramos no &lt;em&gt;for&lt;/em&gt;. Quando iteramos tudo, todas as bandas na lista de bandas estão agora também na tabela &lt;em&gt;t&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Fiz isso, pois vamos reordenar nossa lista de bandas. Para não fazer isso na mesma lista que utilizamos nas outras funções, utilizo essa variável &lt;em&gt;t&lt;/em&gt; apenas para isso.&lt;/p&gt;
+
+&lt;p&gt;A função &lt;em&gt;table.sort()&lt;/em&gt; ordena a tabela que passamos de acordo com condições que prescrevemos. Veja que dentro dessa função eu passo outra função sem nome que especifica como será a ordenação. Essa função tem dois parâmentros genéricos &lt;em&gt;a&lt;/em&gt; e &lt;em&gt;b&lt;/em&gt; que representarão nossas bandas, na sequência em que elas aparecem. Assim, dentro da função, verificamos se o nome de uma banda é “menor” que o nome da próxima banda. Quando comparamos &lt;em&gt;strings&lt;/em&gt;, comparamo-as alfabeticamente.&lt;/p&gt;
+
+&lt;p&gt;A única diferença para a função que lista pelas músicas favoritas, é que na função anônima de comparação, utilizamos o atributo da música favorita, mas a comparação é bem parecida.&lt;/p&gt;
+
+&lt;p&gt;Com essa reordenação feita, iteramos pela nossa tabela ordenada e executamos a função &lt;em&gt;print()&lt;/em&gt; dos objetos.&lt;/p&gt;
+
+&lt;p&gt;Com isso é só você adicionar uma última linha, chamando nossa &lt;em&gt;menuPrincipal()&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;menuPrincipal()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Salve, feche e abra o terminal na pasta onde estão seus códigos.&lt;/p&gt;
+
+&lt;p&gt;Agora é só executar o arquivo BandasFavoritas.lua da seguinte forma:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;lua BandasFavoritas.lua&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Vá seguindo as orientações da tela e adicione e remova quantas bandas quiser. Liste-as das diferentes formas que implementamos e teste cada opção.&lt;/p&gt;
+
+&lt;p&gt;O código completo do arquivo banda.lua:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-- Classe que representa uma banda
+Banda = {}
+Banda.__index = Banda
+
+function Banda.new(nome,musica_favorita)
+    local self = setmetatable({},Banda)
+    self.nome = nome or ''
+    self.musica_favorita = musica_favorita or ''
+    return self
+end
+
+function Banda.setNome(self, nome)
+    self.nome = nome
+end
+
+function Banda.setMusicaFavorita(self, musica_favorita)
+    self.musica_favorita = musica_favorita
+end
+
+function Banda.getNome(self)
+    return self.nome
+end
+
+function Banda.getMusicaFavorita(self)
+    return self.musica_favorita
+end
+
+function Banda.print(self)
+    print(self:getNome() .. &quot; - &quot; .. self:getMusicaFavorita())
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A primeira linha, que começa com “–”, define um comentário, que nada mais é que um texto que será ignorado pelo nosso interpretador e serve para organizarmos melhor o código.&lt;/p&gt;
+
+&lt;p&gt;E o arquivo do nosso programa BandasFavoritas.lua&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require &quot;banda&quot;
+
+a7x = Banda.new('Avenged Sevenfold', 'So Far Away')
+
+lista_bandas = {}
+table.insert(lista_bandas,a7x)
+
+function isListaVazia()
+    if #lista_bandas == 0 then
+        return true
+    else
+        return false
+    end
+end
+
+function listarBandas()
+    repeat
+        if isListaVazia() then
+            print(&quot;A lista está vazia&quot;)
+            break
+        else
+            print(&quot;Lista da suas bandas favoritas&quot;)
+            for i=1,#lista_bandas do
+                lista_bandas[i]:print()
+            end
+            print(&quot;Deseja listar novamente? s/n&quot;)
+            opcao = io.read()
+        end
+    until opcao ~= 's'
+end
+
+function listarBandasNome()
+    repeat
+        if isListaVazia() then
+            print(&quot;A lista está vazia&quot;)
+            break
+        else
+            print(&quot;Lista das bandas por nome&quot;)
+            local t = {}
+            for k,v in ipairs(lista_bandas) do table.insert(t, v) end
+            table.sort(t, function(a,b) return a:getNome()&amp;lt;b:getNome() end)
+            for i=1,#t do
+                t[i]:print()
+            end
+            t = nil
+            print(&quot;Deseja listar novamente? s/n&quot;)
+            opcao = io.read()
+        end
+    until opcao ~= 's'
+end
+
+function listarBandasMusicaFavorita()
+    repeat
+        if isListaVazia() then
+            print(&quot;A lista está vazia&quot;)
+            break
+        else
+            print(&quot;Lista das bandas por música favorita&quot;)
+            local t = {}
+            for k,v in ipairs(lista_bandas) do table.insert(t, v) end
+            table.sort(t, function(a,b) return a:getMusicaFavorita()&amp;lt;b:getMusicaFavorita() end)
+            for i=1,#t do
+                t[i]:print()
+            end
+            t = nil
+            print(&quot;Deseja listar novamente? s/n&quot;)
+            opcao = io.read()
+        end
+    until opcao ~= 's'
+end
+
+function adicionarBanda()
+    repeat
+        print(&quot;Digite o nome da banda&quot;)
+        nome_banda = io.read()
+        print(&quot;Digite a sua música favorita dessa banda&quot;)
+        musica_favorita = io.read()
+        table.insert(lista_bandas, Banda.new(nome_banda, musica_favorita))
+        print(&quot;Deseja adicionar mais uma banda? s/n&quot;)
+        opcao = io.read()
+    until opcao ~= 's'
+end
+
+function removerBanda()
+    repeat
+        if isListaVazia() then
+            print(&quot;A lista está vazia&quot;)
+            break
+        else
+            print(&quot;Digite o número da banda que você deseja remover&quot;)
+            for i=1,#lista_bandas do
+                print(i .. &quot; - &quot; .. lista_bandas[i]:getNome())
+            end
+            opcao = tonumber(io.read())
+            if opcao &amp;lt; 1 or opcao &amp;gt; #lista_bandas then
+                print(&quot;Opção inválida!&quot;)
+                break
+            end
+
+            table.remove(lista_bandas, opcao)
+            print(&quot;Deseja remover mais uma banda? s/n&quot;)
+            opcao = io.read()
+        end
+    until opcao ~= 's'
+end
+
+function menuPrincipal()
+    while(true) do
+        print(&quot;Programa para gerenciar suas bandas favoritas&quot;)
+        print(&quot;Digite o número da opção&quot;)
+        print(&quot;1 - Listar bandas&quot;)
+        print(&quot;2 - Listar bandas por nome&quot;)
+        print(&quot;3 - Listar bandas por música favorita&quot;)
+        print(&quot;4 - Adicionar banda&quot;)
+        print(&quot;5 - Remover banda&quot;)
+        print(&quot;0 - Sair&quot;)
+        opcao = io.read()
+
+        if opcao == '1' then
+            listarBandas()
+        elseif opcao == '2' then
+            listarBandasNome()
+        elseif opcao == '3' then
+            listarBandasMusicaFavorita()
+        elseif opcao == '4' then
+            adicionarBanda()
+        elseif opcao == '5' then
+            removerBanda()
+        elseif opcao == '0' then
+            break
+        else
+            print(&quot;Opção inválida&quot;)
+        end
+    end
+end
+
+menuPrincipal()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ufa! Terminamos nosso tour pela linguagem Lua. Esse exemplo cobre boa parte das &lt;em&gt;features&lt;/em&gt; da linguagem e já serve como referência para você desenvolver outras coisas.&lt;/p&gt;
+
+&lt;p&gt;É claro que é recomendadíssimo ler, pelo menos o tutorial da linguagem, ou adquirir os livros de referência escritos pela próprio equipe que mantém Lua.&lt;/p&gt;
+
+&lt;p&gt;Como tarefa, altere nossa classe para que permita que mais músicas sejam adicionadas. Altere nosso programa principal, também, para permitir a listagem das músicas por banda. Você pode tornar o programa mais completo, verificando sempre se as entradas do usuário são válidas quando ele digita uma opção.&lt;/p&gt;
+
+&lt;p&gt;É isto e até a próxima.&lt;/p&gt;
 </description>
         <pubDate>Sun, 04 Feb 2018 19:15:00 -0200</pubDate>
-        <link>http://localhost:4000//porque/2018/02/04/por-que-python.html</link>
-        <guid isPermaLink="true">http://localhost:4000//porque/2018/02/04/por-que-python.html</guid>
+        <link>http://localhost:4000//guias/2018/02/04/por-que-lua.html</link>
+        <guid isPermaLink="true">http://localhost:4000//guias/2018/02/04/por-que-lua.html</guid>
         
         
-        <category>porque</category>
-        
-      </item>
-    
-      <item>
-        <title>Por que Lua?</title>
-        <description>
-</description>
-        <pubDate>Sun, 04 Feb 2018 19:15:00 -0200</pubDate>
-        <link>http://localhost:4000//porque/2018/02/04/por-que-lua.html</link>
-        <guid isPermaLink="true">http://localhost:4000//porque/2018/02/04/por-que-lua.html</guid>
-        
-        
-        <category>porque</category>
-        
-      </item>
-    
-      <item>
-        <title>Por que C++?</title>
-        <description>&lt;div style=&quot;text-align:center&quot;&gt;
-  &lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/nOPyk&quot;&gt;&lt;a href=&quot;//imgur.com/nOPyk&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;div style=&quot;text-align:justify&quot;&gt;
- &lt;a href=&quot;https://pt.wikipedia.org/wiki/C%2B%2B&quot;&gt; C++ &lt;/a&gt; é o patinho feio da nossa cruzada. &lt;br /&gt;
-  Uma linguagem desnecessariamente complexa para uns, para outros, um canivete
-  suíço que pode fazer qualquer coisa. É fato que C++ está presente em quase toda
-  nosso planeta digital. &lt;br /&gt;
-  Se você já editou textos no Microsoft Office Word e Libre Office Writer, já
-  comprou algo na Amazon, já navegou na web utilizando o Google Chrome ou já
-  passou horas jogando Counter Strike, você teve contato com um produto
-  desenvolvido em C++. &lt;br /&gt;
-  Gostando ou odiando, a maioria dos grandes nomes da tecnologia e entretenimento
-  foram desenvolvidos e são mantidos nessa linguagem, apesar de todos desejarmos
-  migrar tudo para Rust, Go, entre outras. &lt;br /&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Ok, Mago. A linguagem é popular. Devo gostar de sertanejo universitário porque
-é popular também?”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div style=&quot;text-align:justify&quot;&gt;Você deve ser livre para gostar do que quiser e a última coisa que você deveria
-fazer é perguntar para mim o que deve gostar. &lt;br /&gt;&lt;br /&gt;
-
-Anyway, C++ é a linguagem que comecei no mundo da Computação Gráfica e ainda é
-a minha primeira opção para desenvolver sistemas mais robustos. &lt;br /&gt;
-Continua e continuará sendo o padrão para se desenvolver em OpenGL, além de
-ser uma mão na roda quando precisamos dar aquela escovada progressiva nos bits
-ao mesmo tempo que necessitamos manter uma distância da frieza da máquina,
-ficando mais perto do calorzinho humano. &lt;br /&gt;
-Mesmo que muitos de nós ainda não sejamos os melhores em gerenciar memória e
-insistamos em utilizar nossa própria biblioteca porca de alguma estrutura de   
-dados qualquer, haverá um dia em que programaremos utilizando os melhores (e
-eles são bons, só tem que procurar) recursos da linguagem. &lt;br /&gt;&lt;/div&gt;
-
-&lt;div style=&quot;text-align:center&quot;&gt;&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/CwAUm&quot;&gt;&lt;a href=&quot;//imgur.com/CwAUm&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;&lt;script async=&quot;&quot; src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/div&gt;
-
-&lt;div style=&quot;text-align:justify&quot;&gt;Mas o melhor é confiar naquilo que Bjarne Strpspsosopasopd, o próprio pai do C++,
-tem a dizer: &lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“C faz com que dar um tiro no pé seja fácil; C++ torna isso mais difícil, mas quando nós o fazemos arrebentamos com a perna toda.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div style=&quot;text-align:justify&quot;&gt;E eu amo filmes do Quentin Tarantino.&lt;/div&gt;
-</description>
-        <pubDate>Thu, 01 Feb 2018 19:15:00 -0200</pubDate>
-        <link>http://localhost:4000//porque/2018/02/01/por-que-cpp.html</link>
-        <guid isPermaLink="true">http://localhost:4000//porque/2018/02/01/por-que-cpp.html</guid>
-        
-        
-        <category>porque</category>
+        <category>guias</category>
         
       </item>
     
