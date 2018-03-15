@@ -2,12 +2,193 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <description>Explicando magia com C++, Python e Lua</description>
+    <description>Explicando magia com código</description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 13 Mar 2018 23:40:22 -0300</pubDate>
-    <lastBuildDate>Tue, 13 Mar 2018 23:40:22 -0300</lastBuildDate>
+    <pubDate>Wed, 14 Mar 2018 22:15:53 -0300</pubDate>
+    <lastBuildDate>Wed, 14 Mar 2018 22:15:53 -0300</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
+    
+      <item>
+        <title>O retorno do Coding Dojo ao IFC - Campus Blumenau</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://media.riffsy.com/images/72e8935d857a5ab24d18f3ff5dc7bd59/tenor.gif&quot;&gt;&lt;img src=&quot;http://media.riffsy.com/images/72e8935d857a5ab24d18f3ff5dc7bd59/tenor.gif&quot; title=&quot;codingdojo&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Voltei a realizar um Coding Dojo no IFC, após três anos sem nem sequer mencionar esse método
+de treinamento de “resolvedores de problemas”.&lt;/p&gt;
+
+&lt;p&gt;Mas antes de dizer como foi nosso evento, devo explicar o que é um Coding Dojo (desculpa ao pessoal que
+foi e teve que ouvir minha explicação de 15 minutos e vão ter que ler agora [⌒_⌒;]).&lt;/p&gt;
+
+&lt;h1 id=&quot;o-que-é-um-coding-dojo&quot;&gt;O que é um Coding Dojo&lt;/h1&gt;
+
+&lt;p&gt;Em termos rápidos, um &lt;a href=&quot;http://codingdojo.org/&quot;&gt;Coding Dojo&lt;/a&gt; é um encontro de programadores e entusiastas que colaboram juntos para resolver um
+ou mais problemas de programação.&lt;/p&gt;
+
+&lt;p&gt;A ideia de um Coding Dojo é a mesma de um dojo de artes marciais: treinar conceitos.&lt;/p&gt;
+
+&lt;p&gt;Programadores não tem a tendência de treinar o que sabem e o que aprendem. A aplicação do conhecimento é sempre mediante às demandas da
+própria profissão. O mesmo vale para o público acadêmico: alunos programam só na hora da prova e, lá de vez em quando, nos exercícios
+de sala.&lt;/p&gt;
+
+&lt;p&gt;Você sabe que é verdade…&lt;/p&gt;
+
+&lt;p&gt;Em um Coding Dojo reunimos os programadores e trabalhamos juntos para resolver os problemas, usando uma linguagem de programação qualquer, não sendo necessário que
+todos os participantes a dominem. Utilizamos conceitos de programação Agile, como
+&lt;strong&gt;desenvolvimento orientado à testes&lt;/strong&gt;, &lt;strong&gt;programação em pares&lt;/strong&gt; e &lt;strong&gt;baby steps&lt;/strong&gt; (passos de bebê).&lt;/p&gt;
+
+&lt;h1 id=&quot;como-funciona&quot;&gt;Como funciona&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.beeva.com/wp-content/uploads/2016/06/BEEVA-coding-dojo-rantori-1200x565.png&quot;&gt;&lt;img src=&quot;https://www.beeva.com/wp-content/uploads/2016/06/BEEVA-coding-dojo-rantori-1200x565.png&quot; title=&quot;codingdojo&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Há apenas um computador na sala, ligado a um projetor ou TV. O ideal é ter um quadro, também, para rabiscar ideias.&lt;/p&gt;
+
+&lt;p&gt;Na frente do computador, sentam duas pessoas: &lt;strong&gt;piloto&lt;/strong&gt; e &lt;strong&gt;copiloto&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;O piloto escreve o código para tentar resolver o problema. Ele deve evoluir gradativamente em direção à solução.&lt;/p&gt;
+
+&lt;p&gt;O copiloto fica ao lado auxiliando na resolução, porém, sem encostar no computador. Apenas dicas e discussão de ideias
+são ações permitidas ao copiloto.&lt;/p&gt;
+
+&lt;p&gt;O resto do público é considerado &lt;strong&gt;plateia&lt;/strong&gt; e assiste enquanto piloto e copiloto trabalham na resolução do problema.
+A plateia pode pensar em soluções também e, até, rabiscar ideias em blocos de notas ou cadernos que trouxerem. Porém, devem permanecer
+em silêncio e apenas se pronunciar após o piloto executar o código escrito.&lt;/p&gt;
+
+&lt;p&gt;Existe, também, a figura do &lt;strong&gt;sensei&lt;/strong&gt; que nada mais é que o organizador do encontro. O sensei não dá soluções e nem respostas, mas deve garantir que os
+participantes não se desviem muito do caminho. Se necessário, ele pode assumir o papel de copiloto ou piloto quando precisar.&lt;/p&gt;
+
+&lt;p&gt;É definido um tempo limite para o piloto e copiloto. Estourado esse tempo, o piloto vai para a plateia, o copiloto assume o papel de piloto e alguém
+da plateia vira copiloto. Esse rodízio acontece até que seja resolvido completamente o problema.&lt;/p&gt;
+
+&lt;p&gt;O piloto deve sempre testar o código que escreve. Por isso é importante que piloto e copiloto projetem pequenos testes que se concretizem na resolução completa.
+A cada teste escrito, o piloto deve escrever um código que passe no teste. Depois de passar, a plateia pode se manifestar.&lt;/p&gt;
+
+&lt;p&gt;Esse fluxo serve para quebrarmos o problema em pequenas partes e pensarmos em conjunto.&lt;/p&gt;
+
+&lt;p&gt;Após terminarmos o Dojo, avaliamos como foi o encontro, fazendo uma lista de pontos positivos e pontos negativos.&lt;/p&gt;
+
+&lt;h1 id=&quot;como-foi-o-coding-dojo-no-ifc&quot;&gt;Como foi o Coding Dojo no IFC&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://i.imgur.com/tRhEgZ3.jpg&quot;&gt;&lt;img src=&quot;https://i.imgur.com/tRhEgZ3.jpg&quot; title=&quot;dojoifc&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Realizamos o Coding Dojo do IFC no dia 09 de março de 2018 (sexta-feira). Tivemos a participação de oito pessoas no total (contando comigo) o que é
+um número aceitável.&lt;/p&gt;
+
+&lt;p&gt;Como fazia muito tempo que não havia um Dojo no IFC e todos os participantes, com exceção de um, eram novatos, expliquei brevemente o que é um
+Coding Dojo e como funciona.&lt;/p&gt;
+
+&lt;p&gt;Após a explicação, demonstrei a resolução de um problema para que os participantes entendessem como funciona o processo e, também, para apresentar a ferramenta
+que utilizaríamos: o &lt;a href=&quot;&quot;&gt;cyber dojo&lt;/a&gt;. Essa demonstração prévia se chama &lt;strong&gt;Kata&lt;/strong&gt; e faz parte do ritual do encontro.&lt;/p&gt;
+
+&lt;p&gt;Após o kata, começamos o &lt;strong&gt;Randori&lt;/strong&gt; que é o processo descrito antes, o qual contém os papeis de piloto, copiloto e plateia.&lt;/p&gt;
+
+&lt;p&gt;O problema escolhido foi o desenvolvimento de um conversor de números romanos para números arábicos e a linguagem utilizada foi &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;A descrição do problema é a seguinte:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Os romanos escreviam números utilizando letras: I, V, X, L, C, D, M.
+
+Escreva um programa que receba um número romano e retorne um número arábico. Exemplos:
+
+I -&amp;gt; 1
+IV -&amp;gt; 4
+XIX -&amp;gt; 19
+MCMXCIII -&amp;gt; 1993
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Apesar de parecer simples, a resolução não foi tão trivial. Acabamos ficando muito presos à burocracia dos testes, o que não foi muito bom.&lt;/p&gt;
+
+&lt;p&gt;Conseguimos chegar mais perto da solução com a implementação de um dicionário que mapeia as letras para os números e, finalmente, solucionamos o problema
+convertendo cada letra e somando os números de trás para frente. Caso um número posterior for menor que o atual, fazemos uma subtração.&lt;/p&gt;
+
+&lt;p&gt;O código da solução segue abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class Romanos:
+
+    def converter(self, numero):
+        arabicos = {}
+        arabicos[&quot;I&quot;] = 1
+        arabicos[&quot;V&quot;] = 5
+        arabicos[&quot;X&quot;] = 10
+        arabicos[&quot;L&quot;] = 50
+        arabicos[&quot;C&quot;] = 100
+        arabicos[&quot;D&quot;] = 500
+        arabicos[&quot;M&quot;] = 1000
+
+        numero = numero[::-1]
+        resultado = arabicos[numero[0]]
+        for i in range(1, len(numero)):
+            if numero[i] in arabicos:
+                if arabicos[numero[i]] &amp;lt; arabicos[numero[i-1]]:
+                    resultado -= arabicos[numero[i]]
+                else:
+                    resultado += arabicos[numero[i]]
+
+        return resultado
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;E os testes:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import romanos
+import unittest
+
+class TestRomanos(unittest.TestCase):
+    romanos = romanos.Romanos()
+    def test_I_retorna_1(self):
+        self.assertEquals(1993, self.romanos.converter('CMX'))
+        self.assertEquals(910, self.romanos.converter('CMX'))
+
+if __name__ == '__main__':
+    unittest.main()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;No final do Dojo, listamos os seguintes pontos &lt;strong&gt;positivos&lt;/strong&gt; e &lt;strong&gt;negativos&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Positivo&lt;/th&gt;
+      &lt;th&gt;Negativo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Conseguimos resolver o problema&lt;/td&gt;
+      &lt;td&gt;Não teve comida&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Boa ideia da Sabrina de usar dicionário do python&lt;/td&gt;
+      &lt;td&gt;Ficamos um tempo discutindo uma ideia de autômatos que não foi utilizada&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Boa ideia do André de somarmos de trás pra frente&lt;/td&gt;
+      &lt;td&gt;Muita burocracia de testes acabou retardando o processo de resolução&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Trabalhamos em equipe&lt;/td&gt;
+      &lt;td&gt;Seria legal se tivesse mais algumas pessoas&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Richard terminou dentro do tempo previsto&lt;/td&gt;
+      &lt;td&gt;Começamos meio atrasados&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Para os próximos Dojos, devemos realçar os pontos positivos e corrigir os pontos negativos.&lt;/p&gt;
+
+&lt;p&gt;A ideia agora é manter o encontro de forma periódica e atacando variados tipos de problemas, sempre incentivando a interação, o trabalho em equipe e,
+principalmente, se divertir enquanto pratica o que aprende.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;また今度&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 14 Mar 2018 17:20:00 -0300</pubDate>
+        <link>http://localhost:4000//coding-dojo/2018/03/14/coding-dojo-return.html</link>
+        <guid isPermaLink="true">http://localhost:4000//coding-dojo/2018/03/14/coding-dojo-return.html</guid>
+        
+        
+        <category>coding-dojo</category>
+        
+      </item>
     
       <item>
         <title>Um guia (não tão, mas quase) rápido de Lua</title>
@@ -32,7 +213,7 @@ e, principalmente, da possibilidade de embutir a linguagem em projetos feitos em
 &lt;h1 id=&quot;instalação&quot;&gt;Instalação&lt;/h1&gt;
 
 &lt;h2 id=&quot;windows&quot;&gt;Windows&lt;/h2&gt;
-&lt;p&gt;Caso você esteja no Windows (masoquista você hein…) instale o Lua for Windows que já vem com tudo junto, inclusive um editor prontinho para você começar a rodar seus códigos.&lt;/p&gt;
+&lt;p&gt;Caso você esteja no Windows (masoquista você hein…) instale o &lt;a href=&quot;https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/luaforwindows/LuaForWindows_v5.1.4-46.exe&quot;&gt;Lua for Windows&lt;/a&gt; que já vem com tudo junto, inclusive um editor prontinho para você começar a rodar seus códigos.&lt;/p&gt;
 
 &lt;p&gt;A instalação é bem simples e intuitiva e, após realizada, é só você abrir o editor, escrever seu código e rodá-lo. Só atente que a versão do Lua nessa instalação é mais desatualizada que as versões do Linux.&lt;/p&gt;
 
@@ -766,9 +947,20 @@ menuPrincipal()
 
 &lt;p&gt;Ufa! Terminamos nosso tour pela linguagem Lua. Esse exemplo cobre boa parte das &lt;em&gt;features&lt;/em&gt; da linguagem e já serve como referência para você desenvolver outras coisas.&lt;/p&gt;
 
-&lt;p&gt;É claro que é recomendadíssimo ler, pelo menos o tutorial da linguagem, ou adquirir os livros de referência escritos pela próprio equipe que mantém Lua.&lt;/p&gt;
+&lt;p&gt;É claro que é recomendadíssimo ler, pelo menos o &lt;a href=&quot;https://www.lua.org/pil/contents.html&quot;&gt;tutorial oficial da linguagem&lt;/a&gt;, ou adquirir os &lt;a href=&quot;https://www.lua.org/pil/&quot;&gt;livros de referência&lt;/a&gt; escritos pela própria equipe que mantém Lua.&lt;/p&gt;
 
-&lt;p&gt;Como tarefa, altere nossa classe para que permita que mais músicas sejam adicionadas. Altere nosso programa principal, também, para permitir a listagem das músicas por banda. Você pode tornar o programa mais completo, verificando sempre se as entradas do usuário são válidas quando ele digita uma opção.&lt;/p&gt;
+&lt;p&gt;Por último, deixo aqui uma lista de tarefas para você mesmo fazer:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Altere nossa classe para que permita que mais músicas sejam adicionadas;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Altere nosso programa principal para permitir a listagem das músicas por banda;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Verifique sempre se as entradas do usuário são válidas quando ele digita uma opção.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;É isto e até a próxima.&lt;/p&gt;
 </description>
