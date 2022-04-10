@@ -1,4 +1,284 @@
+<!DOCTYPE html>
 <html>
-  <head></head>
-  <body>Hello World!</body>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+      canvas {
+        position: absolute;
+      }
+      body {
+        font-family: "Noto Serif";
+        color: #4e4e4e;
+        background: radial-gradient(
+          circle at center,
+          white,
+          rgba(113, 129, 191, 0.5) 50%
+        );
+      }
+      h1 {
+        text-align: center;
+      }
+      .infoButton {
+        position: absolute;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+      .infoButton:active {
+        transform: scale(0.98);
+        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+      }
+      #aboutMeButton {
+        top: 25%;
+        left: 60%;
+        transform: translate(60%, 25%);
+        transform: rotate(45deg);
+        background-color: rgb(201, 23, 23);
+      }
+      #experienceButton {
+        top: 75%;
+        left: 60%;
+        transform: translate(60%, 75%);
+        transform: rotate(-45deg);
+        background-color: rgb(29, 201, 23);
+      }
+      #educationButton {
+        top: 75%;
+        left: 35%;
+        transform: translate(35%, 75%);
+        transform: rotate(45deg);
+        background-color: rgb(41, 23, 201);
+      }
+      #portfolioButton {
+        top: 25%;
+        left: 35%;
+        transform: translate(35%, 25%);
+        transform: rotate(-45deg);
+        background-color: rgb(0, 0, 0);
+      }
+      .hide {
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        width: 0;
+      }
+      .infoCard {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        overflow: auto;
+        width: 400px;
+        box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+        border-radius: 50px;
+        backdrop-filter: blur(14px);
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+        transition: opacity 1s linear;
+      }
+      .infoContent {
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <button
+      class="infoButton"
+      id="aboutMeButton"
+      onclick="showInfo('aboutMeCard')"
+    >
+      About Me
+    </button>
+    <button
+      class="infoButton"
+      id="experienceButton"
+      onclick="showInfo('workExperienceCard')"
+    >
+      Experience
+    </button>
+    <button
+      class="infoButton"
+      id="educationButton"
+      onclick="showInfo('educationCard')"
+    >
+      Education
+    </button>
+    <button
+      class="infoButton"
+      id="portfolioButton"
+      onclick="showInfo('portfolioCard')"
+    >
+      Portfolio
+    </button>
+    <div class="hide" id="aboutMeCard">
+      <h1>whoami &#129497;</h1>
+      <div class="infoContent">
+        <p>
+          I am a Full Stack Web Developer, and I've been practicing and training
+          coding wizardry since 2011.
+        </p>
+        <p>
+          My code grimoire contains <b><u>HTML</u></b
+          >, <b><u>CSS</u></b
+          >, <b><u>JavaScript</u></b> and <b><u>React</u></b> for
+          <b>Frontend</b>, and <b><u>NodeJs</u></b> and <b><u>Python</u></b> for
+          <b>Backend</b>.
+        </p>
+        <p>
+          I love to work outside the box (except if the box is a pixel) so I'm
+          often experimenting and developing web applications mixed with
+          exciting things such as <b><u>Image Processing</u></b
+          >, <b><u>VR/AR</u></b> and <b><u>Machine Learning</u></b
+          >.
+        </p>
+      </div>
+    </div>
+    <div class="hide" id="workExperienceCard">
+      <h1>where I used magic &#129497;</h1>
+      <div class="infoContent">
+        <p>Work experience</p>
+      </div>
+    </div>
+    <div class="hide" id="educationCard">
+      <h1>where I learned magic &#129497;</h1>
+      <div class="infoContent">
+        <p>Education</p>
+      </div>
+    </div>
+    <div class="hide" id="portfolioCard">
+      <h1>some magic examples &#129497;</h1>
+      <div class="infoContent">
+        <p>Portfolio</p>
+      </div>
+    </div>
+    <script src="js/three.js"></script>
+    <script>
+      const canvas = document.querySelector("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        30,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        60
+      );
+      const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+      });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+      const texture = new THREE.TextureLoader().load(
+        "./assets/small_world.jpg"
+      );
+      const geometry = new THREE.SphereGeometry(1, 40, 40);
+      const material = new THREE.MeshBasicMaterial({ map: texture });
+      const planet = new THREE.Mesh(geometry, material);
+      scene.add(planet);
+      const distance = 8;
+      camera.position.z = distance;
+      function animate() {
+        requestAnimationFrame(animate);
+        planet.rotation.y += 0.001;
+        renderer.render(scene, camera);
+      }
+      animate();
+      window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+      const cardIdList = [
+        "aboutMeCard",
+        "workExperienceCard",
+        "educationCard",
+        "portfolioCard",
+      ];
+      function showInfo(elementId) {
+        const card = document.getElementById(elementId);
+        if (!card.classList.contains("infoCard")) {
+          const cardsToHide = cardIdList.filter((card) => card !== elementId);
+          cardsToHide.forEach((card) => {
+            const cardToHide = document.getElementById(card);
+            cardToHide.classList.remove("infoCard");
+          });
+          card.classList.add("infoCard");
+          console.log(card.classList);
+        } else {
+          card.classList.remove("infoCard");
+        }
+      }
+
+      let img = new Image();
+      img.src =
+        "https://opengameart.org/sites/default/files/Green-Cap-Character-16x18.png";
+      img.onload = function () {
+        init();
+      };
+      let ctx = canvas.getContext("2d");
+      const scale = 2;
+      const width = 16;
+      const height = 18;
+      const scaledWidth = scale * width;
+      const scaledHeight = scale * height;
+
+      function drawFrame(frameX, frameY, canvasX, canvasY) {
+        ctx.drawImage(
+          img,
+          frameX * width,
+          frameY * height,
+          width,
+          height,
+          canvasX,
+          canvasY,
+          scaledWidth,
+          scaledHeight
+        );
+      }
+
+      const cycleLoop = [0, 1, 0, 2];
+      let currentLoopIndex = 0;
+      let frameCount = 0;
+      
+      const targetAngle = 2 * Math.asin(geometry.boundingSphere.radius / distance);
+      const vFOV = THREE.Math.degToRad(camera.fov);
+      const planetHeight = (targetAngle / vFOV) * window.innerHeight;
+      let charX = window.innerWidth/2-scaledWidth;
+      let charY = planetHeight/2-10;
+      function step() {
+        frameCount++;
+        if (frameCount < 15) {
+          window.requestAnimationFrame(step);
+          return;
+        }
+        frameCount = 0;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawFrame(cycleLoop[currentLoopIndex], 0, charX, charY);
+        currentLoopIndex++;
+        if (currentLoopIndex >= cycleLoop.length) {
+          currentLoopIndex = 0;
+        }
+        window.requestAnimationFrame(step);
+      }
+
+      function init() {
+        window.requestAnimationFrame(step);
+      }
+    </script>
+  </body>
 </html>
