@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
-      canvas {
-        position: absolute;
-      }
       body {
         font-family: "Noto Serif";
         color: #4e4e4e;
@@ -18,6 +15,13 @@
       }
       h1 {
         text-align: center;
+      }
+      #title {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 32px;
       }
       .infoButton {
         position: absolute;
@@ -40,28 +44,28 @@
       #aboutMeButton {
         top: 25%;
         left: 60%;
-        transform: translate(60%, 25%);
+        transform: translate(-50%, -50%);
         transform: rotate(45deg);
         background-color: rgb(201, 23, 23);
       }
       #experienceButton {
-        top: 75%;
+        top: 70%;
         left: 60%;
-        transform: translate(60%, 75%);
+        transform: translate(-50%, -50%);
         transform: rotate(-45deg);
         background-color: rgb(29, 201, 23);
       }
       #educationButton {
-        top: 75%;
+        top: 70%;
         left: 35%;
-        transform: translate(35%, 75%);
+        transform: translate(-50%, -50%);
         transform: rotate(45deg);
         background-color: rgb(41, 23, 201);
       }
       #portfolioButton {
         top: 25%;
         left: 35%;
-        transform: translate(35%, 25%);
+        transform: translate(-50%, -50%);
         transform: rotate(-45deg);
         background-color: rgb(0, 0, 0);
       }
@@ -92,10 +96,20 @@
       .infoContent {
         text-align: justify;
       }
+      #contacts {
+        position: absolute;
+        top: 90%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+      }
     </style>
   </head>
   <body>
-    <canvas></canvas>
+    <div id="title">
+      <p>Hi! I am Mateus Bueno!</p>
+      <p>Welcome to my world...</p>
+    </div>
     <button
       class="infoButton"
       id="aboutMeButton"
@@ -148,28 +162,156 @@
       </div>
     </div>
     <div class="hide" id="workExperienceCard">
-      <h1>where I used magic &#129497;</h1>
+      <h1>where I used magic &#10024;</h1>
       <div class="infoContent">
         <p>Work experience</p>
+        <ul>
+          <li>
+            Software Engineer at
+            <a target="_blank" href="https://www.voyagerportal.com/"
+              >Voyager Portal</a
+            >: Currently
+          </li>
+          <li>
+            Research Software Engineer at
+            <a target="_blank" href="https://www.senior.com.br/"
+              >Senior Sistemas</a
+            >: 2020 - 2021
+          </li>
+          <li>
+            I.T. Coordinator at
+            <a target="_blank" href="https://ifc.edu.br/">IFC</a>: 2017 - 2020
+          </li>
+          <li>
+            CTO at
+            <a
+              target="_blank"
+              href="https://appadvice.com/app/eagle-black-club/1437186023"
+              >Eagle Black Club</a
+            >: 2019
+          </li>
+          <li>
+            I.T. Specialist at
+            <a target="_blank" href="https://ifc.edu.br/">IFC</a>: 2013 - 2017
+          </li>
+          <li>
+            Intern Researcher at
+            <a target="_blank" href="https://www.ifsc.edu.br/">IFSC</a>: 2011 -
+            2012
+          </li>
+        </ul>
+        <p>
+          More info on my
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/mateusmb/details/experience/"
+            >LinkedIn</a
+          >
+        </p>
       </div>
     </div>
     <div class="hide" id="educationCard">
-      <h1>where I learned magic &#129497;</h1>
+      <h1>where I learned magic &#127891;</h1>
       <div class="infoContent">
-        <p>Education</p>
+        <p>Academic path</p>
+        <ul>
+          <li>
+            Ongoing Master Degree in
+            <a target="_blank" href="https://www.udesc.br/cct/ppgca"
+              >Applied Computing at UDESC</a
+            >: 2021
+          </li>
+        </ul>
+        <ul>
+          <li>
+            Associate Degree in
+            <a target="_blank" href="http://blumenau.ifc.edu.br/tads/"
+              >Systems Analysis and Development at IFC</a
+            >: 2013-2019
+          </li>
+        </ul>
+        <ul>
+          <li>
+            Technical High School Diploma in
+            <a
+              target="_blank"
+              href="https://www.ifsc.edu.br/curso-aberto/-/asset_publisher/nvqSsFwoxoh1/content/id/1035338?p_r_p_564233524_categoryId=655665"
+              >Information Technology at IFSC</a
+            >: 2011-2012
+          </li>
+        </ul>
       </div>
     </div>
     <div class="hide" id="portfolioCard">
-      <h1>some magic examples &#129497;</h1>
+      <h1>some magic examples</h1>
       <div class="infoContent">
-        <p>Portfolio</p>
+        <p>These are some examples of fancy things that I did or am doing</p>
+        <p>
+          <a target="_blank" href="https://github.com/mateusmb/react-mediapipe"
+            >A collection of sample AR applications in React with Google's
+            Mediapipe</a
+          >
+        </p>
+        <p>
+          <a target="_blank" href="https://github.com/mateusmb/marked"
+            >A Markdown Editor made with React and TypeScript</a
+          >
+        </p>
+        <p>
+          <a target="_blank" href="https://github.com/mateusmb/galaxy-chat"
+            >A chat app with planets instead of rooms
+          </a>
+        </p>
+        <p>
+          <a target="_blank" href="https://github.com/mateusmb/gallery"
+            >A photo gallery app made with React, Typescript and Firebase
+          </a>
+        </p>
+        <p>
+          <a target="_blank" href="https://youtu.be/0HhWIvPhbu0?t=10985"
+            >A talk at React Global Online Summit 2021 about React and
+            MediaPipe: Powering Web Applications with AI and Computer Vision
+          </a>
+        </p>
       </div>
+    </div>
+    <div id="contacts">
+      <p>
+        <a target="_blank" href="https://github.com/mateusmb"
+          ><img
+            src="./assets/github.webp"
+            width="9%"
+            height="auto"
+            alt="Link to my Github"
+          />
+          github.com/mateusmb</a
+        >
+      </p>
+      <p>
+        <a target="_blank" href="https://www.linkedin.com/in/mateusmb/"
+          ><img
+            src="./assets/linkedin.webp"
+            width="8%"
+            height="auto"
+            alt="Link to my LinkedIn"
+          />
+          linkedin.com/in/mateusmb</a
+        >
+      </p>
+      <p>
+        <a target="_blank" href="mailto:mateusmbdev@gmail.com"
+          ><img
+            src="./assets/gmail.ico"
+            width="8%"
+            height="auto"
+            alt="Link to my Gmail"
+          />
+          mateusmbdev@gmail.com</a
+        >
+      </p>
     </div>
     <script src="js/three.js"></script>
     <script>
-      const canvas = document.querySelector("canvas");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(
         30,
@@ -189,12 +331,52 @@
       const geometry = new THREE.SphereGeometry(1, 40, 40);
       const material = new THREE.MeshBasicMaterial({ map: texture });
       const planet = new THREE.Mesh(geometry, material);
+      const magusTexture = new THREE.TextureLoader().load("./assets/magus.png");
+      const magusSprite = new THREE.SpriteMaterial({ map: magusTexture });
+      const sprite = new THREE.Sprite(magusSprite);
+      planet.position.z = -1;
+      sprite.scale.set(0.55, 0.7, 1);
+      scene.add(sprite);
       scene.add(planet);
       const distance = 8;
       camera.position.z = distance;
+      let spriteUp = true;
+      let spriteForward = true;
       function animate() {
         requestAnimationFrame(animate);
-        planet.rotation.y += 0.001;
+        planet.rotation.y -= 0.001;
+        if (spriteUp) {
+          if (sprite.position.y < 0.2) {
+            sprite.position.y += 0.002;
+          } else {
+            spriteUp = false;
+          }
+        }
+
+        if (!spriteUp) {
+          if (sprite.position.y > 0) {
+            sprite.position.y -= 0.002;
+          } else {
+            spriteUp = true;
+          }
+        }
+
+        if (spriteForward) {
+          if (sprite.position.x < 0.1) {
+            sprite.position.x += 0.001;
+          } else {
+            spriteForward = false;
+          }
+        }
+
+        if (!spriteForward) {
+          if (sprite.position.x > 0) {
+            sprite.position.x -= 0.001;
+          } else {
+            spriteForward = true;
+          }
+        }
+
         renderer.render(scene, camera);
       }
       animate();
@@ -219,65 +401,12 @@
           });
           card.classList.add("infoCard");
           console.log(card.classList);
+          const cardIndex = cardIdList.findIndex(
+            (cardId) => card === elementId
+          );
         } else {
           card.classList.remove("infoCard");
         }
-      }
-
-      let img = new Image();
-      img.src =
-        "https://opengameart.org/sites/default/files/Green-Cap-Character-16x18.png";
-      img.onload = function () {
-        init();
-      };
-      let ctx = canvas.getContext("2d");
-      const scale = 2;
-      const width = 16;
-      const height = 18;
-      const scaledWidth = scale * width;
-      const scaledHeight = scale * height;
-
-      function drawFrame(frameX, frameY, canvasX, canvasY) {
-        ctx.drawImage(
-          img,
-          frameX * width,
-          frameY * height,
-          width,
-          height,
-          canvasX,
-          canvasY,
-          scaledWidth,
-          scaledHeight
-        );
-      }
-
-      const cycleLoop = [0, 1, 0, 2];
-      let currentLoopIndex = 0;
-      let frameCount = 0;
-      
-      const targetAngle = 2 * Math.asin(geometry.boundingSphere.radius / distance);
-      const vFOV = THREE.Math.degToRad(camera.fov);
-      const planetHeight = (targetAngle / vFOV) * window.innerHeight;
-      let charX = window.innerWidth/2-scaledWidth;
-      let charY = planetHeight/2-10;
-      function step() {
-        frameCount++;
-        if (frameCount < 15) {
-          window.requestAnimationFrame(step);
-          return;
-        }
-        frameCount = 0;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawFrame(cycleLoop[currentLoopIndex], 0, charX, charY);
-        currentLoopIndex++;
-        if (currentLoopIndex >= cycleLoop.length) {
-          currentLoopIndex = 0;
-        }
-        window.requestAnimationFrame(step);
-      }
-
-      function init() {
-        window.requestAnimationFrame(step);
       }
     </script>
   </body>
