@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Mateus World</title>
     <meta charset="utf-8" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+
       body {
         font-family: "Noto Serif";
         color: #4e4e4e;
@@ -43,30 +45,30 @@
       }
       #aboutMeButton {
         top: 25%;
-        left: 60%;
+        left: 35%;
         transform: translate(-50%, -50%);
-        transform: rotate(45deg);
+        transform: rotate(-45deg);
         background-color: rgb(201, 23, 23);
       }
       #experienceButton {
-        top: 70%;
+        top: 25%;
         left: 60%;
         transform: translate(-50%, -50%);
-        transform: rotate(-45deg);
+        transform: rotate(45deg);
         background-color: rgb(29, 201, 23);
       }
       #educationButton {
         top: 70%;
-        left: 35%;
+        left: 60%;
         transform: translate(-50%, -50%);
-        transform: rotate(45deg);
+        transform: rotate(-45deg);
         background-color: rgb(41, 23, 201);
       }
       #portfolioButton {
-        top: 25%;
+        top: 70%;
         left: 35%;
         transform: translate(-50%, -50%);
-        transform: rotate(-45deg);
+        transform: rotate(45deg);
         background-color: rgb(0, 0, 0);
       }
       .hide {
@@ -85,13 +87,13 @@
         width: 400px;
         box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
         border-radius: 50px;
-        backdrop-filter: blur(14px);
+        backdrop-filter: blur(30px);
         background-color: rgba(255, 255, 255, 0.2);
         padding: 10px;
         visibility: visible;
         opacity: 1;
         height: auto;
-        transition: opacity 1s linear;
+        transition: opacity 0.8s linear;
       }
       .infoContent {
         text-align: justify;
@@ -102,6 +104,61 @@
         left: 56%;
         transform: translate(-50%, -50%);
         font-size: 20px;
+      }
+      @media only screen and (min-device-width: 200px) and (max-device-width: 1268px) {
+        #aboutMeButton {
+          top: 25%;
+          left: 25%;
+          width: 200px;
+          height: 80px;
+          font-size: 25px;
+          transform: translate(-50%, -50%);
+          background-color: rgb(201, 23, 23);
+        }
+        #experienceButton {
+          top: 25%;
+          left: 75%;
+          width: 200px;
+          height: 80px;
+          font-size: 25px;
+          transform: translate(-50%, -50%);
+          background-color: rgb(19, 95, 16);
+        }
+        #educationButton {
+          top: 75%;
+          left: 75%;
+          width: 200px;
+          height: 80px;
+          font-size: 25px;
+          transform: translate(-50%, -50%);
+          background-color: rgb(41, 23, 201);
+        }
+        #portfolioButton {
+          top: 75%;
+          left: 25%;
+          width: 200px;
+          height: 80px;
+          font-size: 25px;
+          transform: translate(-50%, -50%);
+          background-color: rgb(0, 0, 0);
+        }
+        .infoCard {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          overflow: auto;
+          width: 600px;
+          box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+          border-radius: 50px;
+          backdrop-filter: blur(80px);
+          background-color: rgba(255, 255, 255, 0.2);
+          padding: 10px;
+          visibility: visible;
+          opacity: 1;
+          height: auto;
+          transition: opacity 0.8s linear;
+        }
       }
     </style>
   </head>
@@ -243,7 +300,7 @@
       </div>
     </div>
     <div class="hide" id="portfolioCard">
-      <h1>some magic examples</h1>
+      <h1>some magic examples &#9889;</h1>
       <div class="infoContent">
         <p>These are some examples of fancy things that I did or am doing</p>
         <p>
@@ -400,7 +457,6 @@
             cardToHide.classList.remove("infoCard");
           });
           card.classList.add("infoCard");
-          console.log(card.classList);
           const cardIndex = cardIdList.findIndex(
             (cardId) => card === elementId
           );
@@ -408,6 +464,42 @@
           card.classList.remove("infoCard");
         }
       }
+      console.log(` 
+
+                   ▄███µ
+
+                 ▄███████
+
+                ▄█████████▄
+
+                ████████└▀▀█µ
+
+               ╙████████▄
+
+              ╓██████████
+
+              ████████████
+
+             ▐████████████▄
+
+             ██████████████
+
+              ▄▄▄▄▌▀▀▀▀▀▀└
+
+               ████M
+
+       ,╓  ╙██▄▄▄▄▄▄▄▄▄▄▄████  ╓,
+
+,▄▄███████▄   ╙▀▀▀▀▀▀▀▀▀▀▀└  ▄████████▄µ
+
+▀█████████████▄▄▄▄╓╓╓╓▄▄▄▄█████████████▀
+
+  └▀▀██████████████████████████████▀▀└
+  
+  ======= If you hire me or just talk ======
+  ======= Hit me up on LinkedIn ============
+  ================ at ======================
+  ======= linkedin.com/in/mateusmb =========`);
     </script>
   </body>
 </html>
