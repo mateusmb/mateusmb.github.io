@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, use-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>My world on AR</title>
+    <script src="js/three.js"></script>
+    <script src="js/ar.js"></script>
+    <style>
+        body {
+            margin: 0px;
+            overflow: hidden;
+            font-family: "Noto Serif";
+            color: #4e4e4e;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>That's my world in Augmented Reality</h1>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.Camera();
+        const renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            alpha: true
+        });
+        renderer.setClearColor(new THREE.Color("lightgrey"), 0);
+        renderer.setSize(640, 480);
+        renderer.domElement.style.position = "absolute";
+        renderer.domElement.style.top = "0px";
+        renderer.domElement.style.left = "0px";
+        document.body.appendChild(renderer.domElement);
+
+        let onRenderFunctions = [];
+
+        scene.add(camera);
+
+        const arToolkitSource = new THREEx.ArToolkitSource({
+            sourceType: "webcam",
+        });
+
+        arToolkitSource.init(function onReady() {
+            onResize()
+        });
+
+        window.addEventListener('resize', function () {
+            onResize()
+        });
+
+        const arToolkitContext = new THREEx.ArToolkitContext({
+            cameraParametersUrl: "./data/camera_para.dat",
+            detectionMode: "mono",
+        });
+
+        arToolkitContext.init(function onCompleted() {
+            camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
+        });
+
+        function onResize() {
+            arToolkitSource.onResizeElement();
+            arToolkitSource.copyElementSizeTo(renderer.domElement);
+            if (arToolkitContext !== null) {
+                arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas);
+            }
+        }
+
+        onRenderFunctions.push(function () {
+            if (arToolkitSource.ready === false) {
+                return;
+            }
+            arToolkitContext.update(arToolkitSource.domElement);
+            scene.visible = camera.visible;
+        });
+
+        const markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
+            type: "pattern",
+            patternUrl: "./data/patt.hiro",
+            changeMatrixMode: "cameraTransformMatrix",
+        });
+        scene.visible = false;
+
+        const texture = new THREE.TextureLoader().load(
+            "./assets/small_world.jpg"
+        );
+        const geometry = new THREE.SphereGeometry(1, 40, 40);
+        const material = new THREE.MeshBasicMaterial({ map: texture });
+        const planet = new THREE.Mesh(geometry, material);
+        const magusTexture = new THREE.TextureLoader().load("./assets/magus.png");
+        const magusSprite = new THREE.SpriteMaterial({ map: magusTexture });
+        const sprite = new THREE.Sprite(magusSprite);
+        planet.position.z = -1;
+        sprite.scale.set(0.55, 0.7, 1);
+        scene.add(sprite);
+        scene.add(planet);
+        let spriteUp = true;
+        let spriteForward = true;
+
+        onRenderFunctions.push(function () {
+            planet.rotation.y -= 0.001;
+            if (spriteUp) {
+                if (sprite.position.y < 0.2) {
+                    sprite.position.y += 0.002;
+                } else {
+                    spriteUp = false;
+                }
+            }
+
+            if (!spriteUp) {
+                if (sprite.position.y > 0) {
+                    sprite.position.y -= 0.002;
+                } else {
+                    spriteUp = true;
+                }
+            }
+
+            if (spriteForward) {
+                if (sprite.position.x < 0.1) {
+                    sprite.position.x += 0.001;
+                } else {
+                    spriteForward = false;
+                }
+            }
+
+            if (!spriteForward) {
+                if (sprite.position.x > 0) {
+                    sprite.position.x -= 0.001;
+                } else {
+                    spriteForward = true;
+                }
+            }
+        });
+
+        onRenderFunctions.push(function () {
+            renderer.render(scene, camera);
+        });
+
+        let lastTimeMilisec = null;
+
+        requestAnimationFrame(function animate(nowMilisec) {
+            // keep looping
+            requestAnimationFrame(animate);
+            // measure time
+            lastTimeMilisec = lastTimeMilisec || nowMilisec - 1000 / 60
+            let deltaMilisec = Math.min(200, nowMilisec - lastTimeMilisec)
+            lastTimeMilisec = nowMilisec
+            // call each update function
+            onRenderFunctions.forEach(function (onRenderFunction) {
+                onRenderFunction(deltaMilisec / 1000, nowMilisec / 1000)
+            })
+        })
+    </script>
+</body>
+
+</html>
