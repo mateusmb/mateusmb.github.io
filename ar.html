@@ -36,7 +36,7 @@
     <h1>Welcome to my reality...</h1>
     <script>
 
-        var scene, camera, renderer, clock, deltaTime, totalTime;
+        var scene, camera, renderer, clock, deltaTime, totalTime, projector;
 
         var arToolkitSource, arToolkitContext;
 
@@ -71,7 +71,7 @@
             renderer.domElement.style.top = '0px'
             renderer.domElement.style.left = '0px'
             document.body.appendChild(renderer.domElement);
-
+            projector = new THREE.Projector();
             clock = new THREE.Clock();
             deltaTime = 0;
             totalTime = 0;
@@ -100,6 +100,8 @@
             window.addEventListener('resize', function () {
                 onResize()
             });
+
+            window.addEventListener('mousedown', onDocumentMouseDown, false);
 
             ////////////////////////////////////////////////////////////
             // setup arToolkitContext
@@ -135,12 +137,12 @@
             planet = new THREE.Mesh(geometry, material);
             planet.position.y = 0.5;
             planet.rotation.x = 80;
-            const magusTexture = new THREE.TextureLoader().load("./assets/magus.png");
+            const magusTexture = new THREE.TextureLoader().load("./assets/magustouch.png");
             const magusSprite = new THREE.SpriteMaterial({ map: magusTexture, opacity: 0.9 });
             sprite = new THREE.Sprite(magusSprite);
             sprite.scale.set(0.55, 0.7, 1);
             sprite.position.y = 2.0;
-
+            sprite.userData = { URL: "https://github.com/mateusmb" };
             markerRoot1.add(planet);
             markerRoot1.add(sprite);
         }
@@ -168,6 +170,18 @@
             render();
         }
 
+
+        function onDocumentMouseDown(event) {
+           event.preventDefault();
+            var vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 -
+                            1, -(event.clientY / window.innerHeight) * 2 + 1, 0.5);
+            projector.unprojectVector(vector, camera);
+            var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+            var intersects = raycaster.intersectObjects([sprite]);
+            if (intersects.length > 0) {
+                window.open(intersects[0].object.userData.URL);
+            }
+        }
     </script>
 
 </body>
