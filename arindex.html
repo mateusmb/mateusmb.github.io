@@ -131,12 +131,12 @@
                 "./assets/small_world.jpg"
             );
             const geometry = new THREE.SphereGeometry(1, 40, 40);
-            const material = new THREE.MeshBasicMaterial({ map: texture });
+            const material = new THREE.MeshBasicMaterial({ map: texture, opacity: 0.5 });
             planet = new THREE.Mesh(geometry, material);
             planet.position.y = 0.5;
             planet.rotation.x = 80;
             const magusTexture = new THREE.TextureLoader().load("./assets/magus.png");
-            const magusSprite = new THREE.SpriteMaterial({ map: magusTexture });
+            const magusSprite = new THREE.SpriteMaterial({ map: magusTexture, opacity: 0.5 });
             sprite = new THREE.Sprite(magusSprite);
             sprite.scale.set(0.55, 0.7, 1);
             sprite.position.y = 2.0;
