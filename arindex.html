@@ -134,7 +134,7 @@
             const material = new THREE.MeshBasicMaterial({ map: texture });
             planet = new THREE.Mesh(geometry, material);
             planet.position.y = 0.5;
-            planet.rotation.x = -80;
+            planet.rotation.x = 80;
             const magusTexture = new THREE.TextureLoader().load("./assets/magus.png");
             const magusSprite = new THREE.SpriteMaterial({ map: magusTexture });
             sprite = new THREE.Sprite(magusSprite);
