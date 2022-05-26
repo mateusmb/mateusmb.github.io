@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Mateus AR World</title>
+    <!-- include three.js library -->
+    <script src='js/three.js'></script>
+    <!-- include jsartookit -->
+    <!-- include jsartookit -->
+    <script src="jsartoolkit5/artoolkit.min.js"></script>
+    <script src="jsartoolkit5/artoolkit.api.js"></script>
+    <!-- include threex.artoolkit -->
+    <script src="threex/threex-artoolkitsource.js"></script>
+    <script src="threex/threex-artoolkitcontext.js"></script>
+    <script src="threex/threex-arbasecontrols.js"></script>
+    <script src="threex/threex-armarkercontrols.js"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+
+        body {
+            margin: 0px;
+            overflow: hidden;
+            font-family: "Noto Serif";
+            color: #4e4e4e;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Welcome to my reality...</h1>
+    <script>
+
+        var scene, camera, renderer, clock, deltaTime, totalTime, projector;
+
+        var arToolkitSource, arToolkitContext;
+
+        var markerRoot1, markerRoot2;
+
+        let planet;
+
+        let sprite;
+
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
+
+        initialize();
+        animate();
+
+        function initialize() {
+            scene = new THREE.Scene();
+
+            let ambientLight = new THREE.AmbientLight(0xcccccc, 0.5);
+            scene.add(ambientLight);
+
+            camera = new THREE.Camera();
+            scene.add(camera);
+
+            renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true
+            });
+            renderer.setClearColor(new THREE.Color('lightgrey'), 0)
+            renderer.setSize(640, 480);
+            renderer.domElement.style.position = 'absolute'
+            renderer.domElement.style.top = '0px'
+            renderer.domElement.style.left = '0px'
+            document.body.appendChild(renderer.domElement);
+            projector = new THREE.Projector();
+            clock = new THREE.Clock();
+            deltaTime = 0;
+            totalTime = 0;
+
+            ////////////////////////////////////////////////////////////
+            // setup arToolkitSource
+            ////////////////////////////////////////////////////////////
+
+            arToolkitSource = new THREEx.ArToolkitSource({
+                sourceType: 'webcam',
+            });
+
+            function onResize() {
+                arToolkitSource.onResize()
+                arToolkitSource.copySizeTo(renderer.domElement)
+                if (arToolkitContext.arController !== null) {
+                    arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)
+                }
+            }
+
+            arToolkitSource.init(function onReady() {
+                onResize()
+            });
+
+            // handle resize event
+            window.addEventListener('resize', function () {
+                onResize()
+            });
+
+            window.addEventListener('mousedown', onDocumentMouseDown, false);
+
+            ////////////////////////////////////////////////////////////
+            // setup arToolkitContext
+            ////////////////////////////////////////////////////////////	
+
+            // create atToolkitContext
+            arToolkitContext = new THREEx.ArToolkitContext({
+                cameraParametersUrl: 'data/camera_para.dat',
+                detectionMode: 'mono'
+            });
+
+            // copy projection matrix to camera when initialization complete
+            arToolkitContext.init(function onCompleted() {
+                camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
+            });
+
+            ////////////////////////////////////////////////////////////
+            // setup markerRoots
+            ////////////////////////////////////////////////////////////
+
+            // build markerControls
+            markerRoot1 = new THREE.Group();
+            scene.add(markerRoot1);
+            let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
+                type: 'pattern', patternUrl: "data/hiro.patt",
+            })
+
+            const texture = new THREE.TextureLoader().load(
+                "./assets/small_world.jpg"
+            );
+            const geometry = new THREE.SphereGeometry(1, 40, 40);
+            const material = new THREE.MeshBasicMaterial({ map: texture, opacity: 0.5 });
+            planet = new THREE.Mesh(geometry, material);
+            planet.position.y = 0.5;
+            planet.rotation.x = 80;
+            const magusTexture = new THREE.TextureLoader().load("./assets/magustouch.png");
+            const magusSprite = new THREE.SpriteMaterial({ map: magusTexture, opacity: 0.9 });
+            sprite = new THREE.Sprite(magusSprite);
+            sprite.scale.set(0.55, 0.7, 1);
+            sprite.position.y = 2.0;
+            sprite.userData = { URL: "https://github.com/mateusmb" };
+            markerRoot1.add(planet);
+            markerRoot1.add(sprite);
+        }
+
+
+        function update() {
+            if (markerRoot1.visible) {
+                planet.rotation.y -= 0.01;
+            }
+            if (arToolkitSource.ready !== false)
+                arToolkitContext.update(arToolkitSource.domElement);
+        }
+
+
+        function render() {
+            renderer.render(scene, camera);
+        }
+
+
+        function animate() {
+            requestAnimationFrame(animate);
+            deltaTime = clock.getDelta();
+            totalTime += deltaTime;
+            update();
+            render();
+        }
+
+
+        function onDocumentMouseDown(event) {
+           event.preventDefault();
+            var vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 -
+                            1, -(event.clientY / window.innerHeight) * 2 + 1, 0.5);
+            projector.unprojectVector(vector, camera);
+            var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+            var intersects = raycaster.intersectObjects([sprite]);
+            if (intersects.length > 0) {
+                window.open(intersects[0].object.userData.URL);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
