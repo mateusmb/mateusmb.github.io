@@ -66,38 +66,6 @@
             background-color: #2980b9;
             box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); /* Larger shadow on hover */
         }
-
-        #loading-spinner {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            color: #3498db; /* Loading spinner color */
-        }
-
-        #loading-spinner:before {
-            content: '\2022 \2022 \2022'; /* Loading spinner dots */
-            animation: loading 1.5s infinite linear;
-        }
-
-        @keyframes loading {
-            0% {
-                content: '\2022 \2022 \2022';
-            }
-            33% {
-                content: '\2022 \2022 .';
-            }
-            66% {
-                content: '\2022 . .';
-            }
-            100% {
-                content: '. . .';
-            }
-        }
-        #info-container {
-            display: none; /* Hide initially */
-        }
     </style>
 </head>
 <body>
@@ -213,9 +181,6 @@
         } else {
             console.error('No animations found in the GLTF file.');
         }
-        document.getElementById('loading-spinner').style.display = 'none';
-
-    	document.getElementById('info-container').style.display = 'block';
     });
 
 
