@@ -1,530 +1,458 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Mateus World</title>
-    <meta charset="utf-8" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mateus Bueno Site</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
 
-      body {
-        font-family: "Noto Serif";
-        color: #4e4e4e;
-        background: radial-gradient(
-          circle at center,
-          white,
-          rgba(113, 129, 191, 0.5) 50%
-        );
-      }
-      h1 {
-        text-align: center;
-      }
-      #title {
-        position: absolute;
-        top: 10%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 32px;
-      }
-      .infoButton {
-        position: absolute;
-        border-radius: 20px;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-      }
-      .infoButton:active {
-        transform: scale(0.98);
-        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-      }
-      #aboutMeButton {
-        top: 25%;
-        left: 35%;
-        transform: translate(-50%, -50%);
-        transform: rotate(-45deg);
-        background-color: rgb(201, 23, 23);
-      }
-      #experienceButton {
-        top: 25%;
-        left: 60%;
-        transform: translate(-50%, -50%);
-        transform: rotate(45deg);
-        background-color: rgb(29, 201, 23);
-      }
-      #educationButton {
-        top: 70%;
-        left: 60%;
-        transform: translate(-50%, -50%);
-        transform: rotate(-45deg);
-        background-color: rgb(41, 23, 201);
-      }
-      #portfolioButton {
-        top: 70%;
-        left: 35%;
-        transform: translate(-50%, -50%);
-        transform: rotate(45deg);
-        background-color: rgb(0, 0, 0);
-      }
-      .hide {
-        overflow: hidden;
-        visibility: hidden;
-        opacity: 0;
-        height: 0;
-        width: 0;
-      }
-      .infoCard {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        overflow: auto;
-        width: 400px;
-        box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
-        border-radius: 50px;
-        backdrop-filter: blur(30px);
-        background-color: rgba(255, 255, 255, 0.2);
-        padding: 10px;
-        visibility: visible;
-        opacity: 1;
-        height: auto;
-        transition: opacity 0.8s linear;
-      }
-      .infoContent {
-        text-align: justify;
-      }
-      #contacts {
-        position: absolute;
-        top: 90%;
-        left: 56%;
-        transform: translate(-50%, -50%);
-        font-size: 20px;
-      }
-      @media only screen and (min-device-width: 200px) and (max-device-width: 1268px) {
-        #aboutMeButton {
-          top: 25%;
-          left: 25%;
-          width: 200px;
-          height: 80px;
-          font-size: 25px;
-          transform: translate(-50%, -50%);
-          background-color: rgb(201, 23, 23);
+        #info-container {
+            font-family: 'Roboto', sans-serif;
+            position: fixed;
+            top: 10%;
+            left: 10%;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+            padding: 30px; /* Adjust the padding for a larger container */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Soft shadow effect */
         }
-        #experienceButton {
-          top: 25%;
-          left: 75%;
-          width: 200px;
-          height: 80px;
-          font-size: 25px;
-          transform: translate(-50%, -50%);
-          background-color: rgb(19, 95, 16);
+
+        #content-description {
+            display: none;
+            position: fixed;
+            top: 60%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
-        #educationButton {
-          top: 75%;
-          left: 75%;
-          width: 200px;
-          height: 80px;
-          font-size: 25px;
-          transform: translate(-50%, -50%);
-          background-color: rgb(41, 23, 201);
+
+        #content-text {
+            font-size: 16px; /* Set the desired font size for the text */
+            max-height: 200px; /* Set the maximum height for the text container */
+            color: #333; /* Dark gray text color */
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); /* Light text shadow */
+            overflow-y: auto; /* Add a vertical scrollbar if the content exceeds the height */
         }
-        #portfolioButton {
-          top: 75%;
-          left: 25%;
-          width: 200px;
-          height: 80px;
-          font-size: 25px;
-          transform: translate(-50%, -50%);
-          background-color: rgb(0, 0, 0);
+
+        h1, h2 {
+            margin: 0;
+            color: #333; /* Dark gray text color */
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); /* Light text shadow */
         }
-        .infoCard {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          overflow: auto;
-          width: 600px;
-          box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
-          border-radius: 50px;
-          backdrop-filter: blur(80px);
-          background-color: rgba(255, 255, 255, 0.2);
-          padding: 10px;
-          visibility: visible;
-          opacity: 1;
-          height: auto;
-          transition: opacity 0.8s linear;
+
+        button {
+            display: block;
+            margin-top: 15px; /* Adjust the margin for larger spacing between buttons */
+            padding: 10px; /* Adjust the padding for larger buttons */
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Button shadow */
         }
-      }
+
+        button:hover {
+            background-color: #2980b9;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); /* Larger shadow on hover */
+        }
+
+        #loading-spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #3498db; /* Loading spinner color */
+        }
+
+        #loading-spinner:before {
+            content: '\2022 \2022 \2022'; /* Loading spinner dots */
+            animation: loading 1.5s infinite linear;
+        }
+
+        @keyframes loading {
+            0% {
+                content: '\2022 \2022 \2022';
+            }
+            33% {
+                content: '\2022 \2022 .';
+            }
+            66% {
+                content: '\2022 . .';
+            }
+            100% {
+                content: '. . .';
+            }
+        }
+        #info-container {
+            display: none; /* Hide initially */
+        }
     </style>
-    <script type="text/javascript">
-    adroll_adv_id = "NQWVII2SOZHGXIHNSAAV56";
-    adroll_pix_id = "7NVJQRSMFNAINH3HC2Z3UV";
-    adroll_version = "2.0";
+</head>
+<body>
+    <div id="info-container">
+        <h1>Mateus Bueno</h1>
+        <h2>Software Engineer</h2>
+        <button id="about-me-btn">Who am I</button>
+        <button id="experience-btn">Experience</button>
+        <button id="education-btn">Education</button>
+        <button id="highlights-btn">Highlights</button>
+    </div>
+    <div id="content-description">
+        <h1 id="content-title"></h1>
+        <div id="content-text">
+            <p>Paragraph 1 text goes here.</p>
+            <p>Paragraph 2 text goes here.</p>
+        </div>
+        <button id="close-btn">Close</button>
+    </div>
+<script id="fireflies-vertex-shader" type="x-shader">
+    uniform float uPixelRatio;
+    uniform float uSize;
+    attribute float aScale;
+    uniform float uTime;
+    void main()
+    {
+        vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+        modelPosition.y += sin(uTime + modelPosition.x * 100.0) * aScale * 0.8;
+        vec4 viewPosition = viewMatrix * modelPosition;
+        vec4 projectionPosition = projectionMatrix * viewPosition;
 
-    (function(w, d, e, o, a) {
-        w.__adroll_loaded = true;
-        w.adroll = w.adroll || [];
-        w.adroll.f = [ 'setProperties', 'identify', 'track' ];
-        var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id
-                + "/roundtrip.js";
-        for (a = 0; a < w.adroll.f.length; a++) {
-            w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) {
-                return function() {
-                    w.adroll.push([ n, arguments ])
-                }
-            })(w.adroll.f[a])
-        }
-
-        e = d.createElement('script');
-        o = d.getElementsByTagName('script')[0];
-        e.async = 1;
-        e.src = roundtripUrl;
-        o.parentNode.insertBefore(e, o);
-    })(window, document);
-    adroll.track("pageView");
+        gl_Position = projectionPosition;
+        gl_PointSize = uSize * aScale * uPixelRatio;
+        gl_PointSize *= (1.0 / - viewPosition.z);
+    }
 </script>
-  </head>
-  <body>
-    <div id="title">
-      <p>Hi! I am Mateus Bueno!</p>
-      <p>Welcome to my world...</p>
-    </div>
-    <button
-      class="infoButton"
-      id="aboutMeButton"
-      onclick="showInfo('aboutMeCard')"
-    >
-      About Me
-    </button>
-    <button
-      class="infoButton"
-      id="experienceButton"
-      onclick="showInfo('workExperienceCard')"
-    >
-      Experience
-    </button>
-    <button
-      class="infoButton"
-      id="educationButton"
-      onclick="showInfo('educationCard')"
-    >
-      Education
-    </button>
-    <button
-      class="infoButton"
-      id="portfolioButton"
-      onclick="showInfo('portfolioCard')"
-    >
-      Portfolio
-    </button>
-    <div class="hide" id="aboutMeCard">
-      <h1>whoami &#129497;</h1>
-      <div class="infoContent">
-        <p>
-          I am a Full Stack Web Developer, and I've been practicing and training
-          coding wizardry since 2011.
-        </p>
-        <p>
-          My code grimoire contains <b><u>HTML</u></b
-          >, <b><u>CSS</u></b
-          >, <b><u>JavaScript</u></b> and <b><u>React</u></b> for
-          <b>Frontend</b>, and <b><u>NodeJs</u></b> and <b><u>Python</u></b> for
-          <b>Backend</b>.
-        </p>
-        <p>
-          I love to work outside the box (except if the box is a pixel) so I'm
-          often experimenting and developing web applications mixed with
-          exciting things such as <b><u>Image Processing</u></b
-          >, <b><u>VR/AR</u></b> and <b><u>Machine Learning</u></b
-          >.
-        </p>
-      </div>
-    </div>
-    <div class="hide" id="workExperienceCard">
-      <h1>where I used magic &#10024;</h1>
-      <div class="infoContent">
-        <p>Work experience</p>
-        <ul>
-          <li>
-            Software Engineer at
-            <a target="_blank" href="https://www.voyagerportal.com/"
-              >Voyager Portal</a
-            >: Currently
-          </li>
-          <li>
-            Research Software Engineer at
-            <a target="_blank" href="https://www.senior.com.br/"
-              >Senior Sistemas</a
-            >: 2020 - 2021
-          </li>
-          <li>
-            I.T. Coordinator at
-            <a target="_blank" href="https://ifc.edu.br/">IFC</a>: 2017 - 2020
-          </li>
-          <li>
-            CTO at
-            <a
-              target="_blank"
-              href="https://appadvice.com/app/eagle-black-club/1437186023"
-              >Eagle Black Club</a
-            >: 2019
-          </li>
-          <li>
-            I.T. Specialist at
-            <a target="_blank" href="https://ifc.edu.br/">IFC</a>: 2013 - 2017
-          </li>
-          <li>
-            Intern Researcher at
-            <a target="_blank" href="https://www.ifsc.edu.br/">IFSC</a>: 2011 -
-            2012
-          </li>
-        </ul>
-        <p>
-          More info on my
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/in/mateusmb/details/experience/"
-            >LinkedIn</a
-          >
-        </p>
-      </div>
-    </div>
-    <div class="hide" id="educationCard">
-      <h1>where I learned magic &#127891;</h1>
-      <div class="infoContent">
-        <p>Academic path</p>
-        <ul>
-          <li>
-            Ongoing Master Degree in
-            <a target="_blank" href="https://www.udesc.br/cct/ppgca"
-              >Applied Computing at UDESC</a
-            >: 2021
-          </li>
-        </ul>
-        <ul>
-          <li>
-            Associate Degree in
-            <a target="_blank" href="http://blumenau.ifc.edu.br/tads/"
-              >Systems Analysis and Development at IFC</a
-            >: 2013-2019
-          </li>
-        </ul>
-        <ul>
-          <li>
-            Technical High School Diploma in
-            <a
-              target="_blank"
-              href="https://www.ifsc.edu.br/curso-aberto/-/asset_publisher/nvqSsFwoxoh1/content/id/1035338?p_r_p_564233524_categoryId=655665"
-              >Information Technology at IFSC</a
-            >: 2011-2012
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="hide" id="portfolioCard">
-      <h1>some magic examples &#9889;</h1>
-      <div class="infoContent">
-        <p>These are some examples of fancy things that I did or am doing</p>
-        <p>
-          <a target="_blank" href="https://github.com/mateusmb/metaverse-tavern"
-            >A VR ambient with audio and multiplayer support</a>
-        </p>
-        <p>
-          <a target="_blank" href="https://youtu.be/Hf2WV0nufFw"
-            >A event room on Altspace VR Metaverse</a
-          >
-        </p>
-        <p>
-          <a target="_blank" href="https://github.com/mateusmb/ar-face-tracking/"
-            >A virtual try on for AR glasses on real time
-          </a>
-        </p>
-        <p>
-          <a target="_blank" href="https://github.com/mateusmb/ar-image-tracking"
-            >An AR product display with Image Tracking
-          </a>
-        </p>
-        <p>
-          <a target="_blank" href="https://youtu.be/0HhWIvPhbu0?t=10985"
-            >A talk at React Global Online Summit 2021 about React and
-            MediaPipe: Powering Web Applications with AI and Computer Vision
-          </a>
-        </p>
-      </div>
-    </div>
-    <div id="contacts">
-      <p>
-        <a target="_blank" href="https://github.com/mateusmb"
-          ><img
-            src="./assets/github.webp"
-            width="9%"
-            height="auto"
-            alt="Link to my Github"
-          />
-          github.com/mateusmb</a
-        >
-      </p>
-      <p>
-        <a target="_blank" href="https://www.linkedin.com/in/mateusmb/"
-          ><img
-            src="./assets/linkedin.webp"
-            width="8%"
-            height="auto"
-            alt="Link to my LinkedIn"
-          />
-          linkedin.com/in/mateusmb</a
-        >
-      </p>
-      <p>
-        <a target="_blank" href="mailto:mateusmbdev@gmail.com"
-          ><img
-            src="./assets/gmail.ico"
-            width="8%"
-            height="auto"
-            alt="Link to my Gmail"
-          />
-          mateusmbdev@gmail.com</a
-        >
-      </p>
-    </div>
-    <script src="js/three.js"></script>
-    <script>
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(
-        30,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        60
-      );
-      const renderer = new THREE.WebGLRenderer({
-        alpha: true,
-        antialias: true,
-      });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
-      const texture = new THREE.TextureLoader().load(
-        "./assets/small_world.jpg"
-      );
-      const geometry = new THREE.SphereGeometry(1, 40, 40);
-      const material = new THREE.MeshBasicMaterial({ map: texture });
-      const planet = new THREE.Mesh(geometry, material);
-      const magusTexture = new THREE.TextureLoader().load("./assets/magus.png");
-      const magusSprite = new THREE.SpriteMaterial({ map: magusTexture });
-      const sprite = new THREE.Sprite(magusSprite);
-      planet.position.z = -1;
-      sprite.scale.set(0.55, 0.7, 1);
-      scene.add(sprite);
-      scene.add(planet);
-      const distance = 8;
-      camera.position.z = distance;
-      let spriteUp = true;
-      let spriteForward = true;
-      function animate() {
+
+<script id="fireflies-fragment-shader" type="x-shader">
+    void main()
+    {
+        float distanceToCenter = distance(gl_PointCoord, vec2(0.5));
+        float strength = 0.05 / distanceToCenter - 0.1;
+    
+        gl_FragColor = vec4(1.0, 1.0, 1.0, strength);
+    }
+</script>
+
+<script type="module">
+    import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module.js';
+    import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js';
+    import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
+    const firefliesVertexShader = document.getElementById('fireflies-vertex-shader').textContent;
+    const firefliesFragmentShader = document.getElementById('fireflies-fragment-shader').textContent;
+
+    // Create scene
+    const scene = new THREE.Scene();
+
+    // Create camera
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.x = 9
+    camera.position.y = 12;
+    camera.position.z = 25;
+
+    // Create renderer with global illumination (ambient light)
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.BasicShadowMap;
+    document.body.appendChild(renderer.domElement);
+
+    const hemiLight = new THREE.HemisphereLight(0xffffe0, 0x080820, 0.7); // Warm yellowish color
+    hemiLight.position.set(0, 5, 0); // Adjust the position if needed
+    scene.add(hemiLight);
+
+    // Load GLB model
+    const loader = new GLTFLoader();
+    const mixers = [];
+    loader.load('./assets/site.glb', (gltf) => {
+        const model = gltf.scene;
+        model.traverse((child) => {
+        if (child.isMesh) {
+                child.castShadow = true;
+                child.receiveShadow = true;
+            }
+        });
+        const pointLight = new THREE.PointLight(0xffffff, 0.8);
+        pointLight.position.set(4.5, 9, 8);
+        pointLight.target = model;
+
+        const pointLightBat = new THREE.PointLight(0xffffff, 1);
+        pointLightBat.position.set(0.1, 9.8, 4.8);
+        pointLightBat.target = model;
+
+        const pointLightPotions = new THREE.PointLight(0xffffff, 0.8);
+        pointLightPotions.position.set(-5, 3, 3);
+        pointLightPotions.target = model;
+
+        scene.add(pointLight);
+        scene.add(pointLightBat);
+        scene.add(pointLightPotions);
+
+        // Check if there is at least one animation
+        if (gltf.animations && gltf.animations.length > 0) {
+            const mixer = new THREE.AnimationMixer(model);
+            const clip = gltf.animations[0];
+
+            const action = mixer.clipAction(clip);
+            action.play();
+            action.loop = THREE.LoopRepeat;
+
+            scene.add(model);
+            mixers.push(mixer);
+        } else {
+            console.error('No animations found in the GLTF file.');
+        }
+        document.getElementById('loading-spinner').style.display = 'none';
+
+    	document.getElementById('info-container').style.display = 'block';
+    });
+
+
+    const skyGeometry = new THREE.SphereGeometry(100, 32, 32);
+    const skyMaterial = new THREE.MeshBasicMaterial({
+        color: 0x000011,
+        side: THREE.BackSide, // Render the material on the back side of the geometry
+    });
+    const nightSky = new THREE.Mesh(skyGeometry, skyMaterial);
+    scene.add(nightSky);
+
+    // Create random stars using circles
+    const numberOfStars = 200;
+    const starsGeometry = new THREE.BufferGeometry();
+    const starsVertices = [];
+
+    for (let i = 0; i < numberOfStars; i++) {
+        const x = (Math.random() - 0.5) * 200;
+        const y = (Math.random() - 0.5) * 200;
+        const z = (Math.random() - 0.5) * 200;
+
+        starsVertices.push(x, y, z);
+    }
+
+    starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3));
+
+    const starsMaterial = new THREE.PointsMaterial({
+        color: 0xffffff,
+        size: 0.2,
+        sizeAttenuation: false, // Disable size attenuation based on distance
+    });
+    const stars = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(stars);
+
+    const firefliesGeometry = new THREE.BufferGeometry()
+    const firefliesCount = 50
+    const positionArray = new Float32Array(firefliesCount * 3)
+    const scaleArray = new Float32Array(firefliesCount)
+    const firefliesMaterial = new THREE.ShaderMaterial({
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        transparent: true,
+        uniforms:
+        {
+            uTime: { value: 0 },
+            uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
+            uSize: { value: 500 }
+        },
+        vertexShader: firefliesVertexShader,
+        fragmentShader: firefliesFragmentShader
+    })
+    const clock = new THREE.Clock()
+    const fireflies = new THREE.Points(firefliesGeometry, firefliesMaterial)
+    scene.add(fireflies)
+
+    for(let i = 0; i < firefliesCount; i++)
+    {
+        positionArray[i * 3 + 0] = (Math.random() - 0.5) * 30
+        positionArray[i * 3 + 1] = Math.random() * 1.5 * 8
+        positionArray[i * 3 + 2] = (Math.random() - 0.5) * 30
+        scaleArray[i] = Math.random()
+    }
+
+    firefliesGeometry.setAttribute('position', new THREE.BufferAttribute(positionArray, 3))
+    firefliesGeometry.setAttribute('aScale', new THREE.BufferAttribute(scaleArray, 1))
+
+    const fogColor = new THREE.Color(0xffffe0); // Set the color of the fog
+    const fogNear = 5; // Set the near distance of the fog
+    const fogFar = 50; // Set the far distance of the fog
+
+    
+    const fog = new THREE.FogExp2(fogColor, 0.003); // Alternatively, you can use FogExp2 for an exponential fog effect
+
+    scene.fog = fog;
+
+
+    // Add orbit controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    let controlsEnabled = true;
+
+    // Animation loop
+    const animate = () => {
         requestAnimationFrame(animate);
-        planet.rotation.y -= 0.001;
-        if (spriteUp) {
-          if (sprite.position.y < 0.2) {
-            sprite.position.y += 0.002;
-          } else {
-            spriteUp = false;
-          }
-        }
+        TWEEN.update();
 
-        if (!spriteUp) {
-          if (sprite.position.y > 0) {
-            sprite.position.y -= 0.002;
-          } else {
-            spriteUp = true;
-          }
-        }
+        mixers.forEach((mixer) => {
+            mixer.update(0.03);  // Adjust the time scale as needed
+        });
 
-        if (spriteForward) {
-          if (sprite.position.x < 0.1) {
-            sprite.position.x += 0.001;
-          } else {
-            spriteForward = false;
-          }
+        if (controlsEnabled) {
+            // Only update controls if they are enabled
+            controls.update();
         }
+        const elapsedTime = clock.getElapsedTime()
 
-        if (!spriteForward) {
-          if (sprite.position.x > 0) {
-            sprite.position.x -= 0.001;
-          } else {
-            spriteForward = true;
-          }
-        }
+        firefliesMaterial.uniforms.uTime.value = elapsedTime
 
+        // Render scene
         renderer.render(scene, camera);
-      }
-      animate();
-      window.addEventListener("resize", () => {
+    };
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-      const cardIdList = [
-        "aboutMeCard",
-        "workExperienceCard",
-        "educationCard",
-        "portfolioCard",
-      ];
-      function showInfo(elementId) {
-        const card = document.getElementById(elementId);
-        if (!card.classList.contains("infoCard")) {
-          const cardsToHide = cardIdList.filter((card) => card !== elementId);
-          cardsToHide.forEach((card) => {
-            const cardToHide = document.getElementById(card);
-            cardToHide.classList.remove("infoCard");
-          });
-          card.classList.add("infoCard");
-          const cardIndex = cardIdList.findIndex(
-            (cardId) => card === elementId
-          );
-        } else {
-          card.classList.remove("infoCard");
-        }
-      }
-      console.log(` 
+        firefliesMaterial.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio, 2)
+    });
+    const contentDescription = document.getElementById('content-description');
+    const contentTitle = document.getElementById('content-title');
+    const contentText = document.getElementById('content-text');
+    const closeBtn = document.getElementById('close-btn');
+    document.getElementById('about-me-btn').addEventListener('click', function () {
+        moveToCoordinates(7, 10, 18, 1000);
+        showContentDescription(
+            'About Me',
+            [
+                "I'm a Software Engineer with experience in fullstack web development, using mainly Python, NodeJs and React JS.",
+                "I am always aiming to explore new paths with cutting-edge technologies and to mix web applications with 3D,",
+                "Machine Learning, Virtual/Augmented Reality and Cloud Computing.",
+                'Contact me:',
+                '<a href="https://www.linkedin.com/in/mateusmb/" target="_blank">linkedin.com/in/mateusmb</a>',
+                '<a href="https://twitter.com/magus_64" target="_blank">twitter.com/@magus_64</a>',
+                '<a href="https://bsky.app/profile/magus64.bsky.social" target="_blank">@magus64.bsky.social</a>',
+                '<a href="https://github.com/mateusmb" target="_blank">github.com/mateusmb</a>',
+            ]
+        );
+    });
 
-                   ▄███µ
+    document.getElementById('experience-btn').addEventListener('click', function () {
+        moveToCoordinates(-10, 3, -0.5, 1000);
+        showContentDescription(
+            'Experience',
+            [
+                '- Senior Software Engineer at Avaaz.org (Jan/2023 - Current) - Architecturing solutions and leading the development team to deliver products that helps millions of activists around the world. - Python, JavaScript, AWS, Team Leadership.', 
+                '- Freelancer Consultant Engineer (Nov/2021 - Current) - Developing immersive applications and edugames for the Web, Mobile and Virtual Reality headsets - THREEjs, Unity, Unreal Engine.', 
+                '- Software Engineer at BairesDev (May/2022 - Jan/2023) - Worked with NextRoll, a leading social media advertising management company, developing the core application of the main product, which manages the Ads image and video assets, with integrations to Facebook, Instagram, Tik Tok and Pinterest - Python, ReactJs, AWS.',
+                '- Software Engineer at VoyagerPortal (Dec/2021 - Apr/2022) - Development and support for Voyager Portal, a voyage management platform, which powers maritime supply chain and shipping companies. - Python, Node.js, Vue.js, AWS.',
+                '- Research Software Engineer at Senior Sistemas (Jul/2020 - Dec/2021) - Research in applied development and software engineering, to create and/or improve existing systems at Senior S.A, a leader company at Brazil on segments such as Enterprise Resource Planning, Human Resources, Customer Relationship Management and Logistics. As a researcher, my tasks involved implementing modern technologies to existing products or to prototype new applications with disruptive technology to new opportunities. - Python, Machine Learning, JavaScript, Node.js, React.js, AWS, Golang, Blockchain.',
+                '- I.T. Coordinator at IFC (Apr/2017 - Jul/2020)- I coordinated a team of support and development of educational applications and I.T. infrastructure. My main responsiblities were management of virtualization, servers systems and leading the development of applications for students and professors at the institute. - Python, Django, JavaScript, Node.js, Linux, Team Leadership.',
+                '- Information Technology Specialist at IFC (Mar/2013 - Jul/2020) - I started in a support role and eventually developed applications to support administration and educational tasks at the institute. I had to configure and maintain Linux Servers, Firewall systems, Authorization and Authentication systems with OpenLDAP and FreeRadius; designed network cabling infrastructure, support users in configure workstations and devices and developed web applications for course selection proccess and a system for managing students enter and exit of the institute facilities. - Python, Flask, Django, JavaScript.',
+                '- Chief Technology Officer - I held a CTO position in a startup for Night Life Management, which was based at the city of Florianopolis. The main product of the startup was a mobile app, for Android and iOS, which offered a subscription program for night clubs VIP access and discounts on parties products. We had a maximum of circa 500 users, in the peak of the company life. The app was developed by myself with the MERN stack (MongoDB, ExpressJs, React Native and NodeJs). The company was eventually merged with another startup and migrated to a consulting business platform.'
+            ]
+        );
+    });
 
-                 ▄███████
+    document.getElementById('education-btn').addEventListener('click', function () {
+        moveToCoordinates(10, 3, 0.5, 1000);
+        showContentDescription(
+            'Education',
+            [
+                'Post graduation in Game Design at Unileya: 2022 - 2024',
+                'Associate Degree in Systems Analysis and Development at IFC: 2013-2019',
+                'Technical High School Diploma in Information Technology at IFSC: 2011-2012',
+            ]
+        );
+    });
 
-                ▄█████████▄
+    document.getElementById('highlights-btn').addEventListener('click', function () {
+        moveToCoordinates(1, 5, -10, 1000);
+        showContentDescription(
+            'Highlights',
+            [
+                '<a href="https://github.com/mateusmb/metaverse-tavern" target="_blank">A VR ambient with audio and multiplayer support</a>',
+                '<a href="https://youtu.be/Hf2WV0nufFw" target="_blank">A event room on Altspace VR Metaverse</a>',
+                '<a href="https://github.com/mateusmb/ar-face-tracking/" target="_blank">A virtual try on for AR glasses on real time</a>',
+                '<a href="https://github.com/mateusmb/ar-image-tracking" target="_blank">An AR product display with Image Tracking</a>',
+                '<a href="https://youtu.be/0HhWIvPhbu0?t=10985" target="_blank">A talk at React Global Online Summit 2021 about React and MediaPipe: Powering Web Applications with AI and Computer Vision</a>',
+            ]
+        );
+    });
 
-                ████████└▀▀█µ
+    closeBtn.addEventListener('click', hideContentDescription);
 
-               ╙████████▄
+    // Function to smoothly move the camera to specific coordinates
+    function moveToCoordinates(x, y, z, zoomFactor, duration) {
+        const targetPosition = new THREE.Vector3(x, y, z);
 
-              ╓██████████
+        new TWEEN.Tween(camera.position)
+            .to(targetPosition, duration)
+            .onUpdate(() => {
+                controls.update();
+            })
+            .onComplete(() => {
+                // Enable controls once the animation is complete
+                controlsEnabled = true;
+            })
+            .start();
+                
 
-              ████████████
+    }
 
-             ▐████████████▄
+    function showContentDescription(title, paragraphs) {
+        contentTitle.textContent = title;
 
-             ██████████████
+        // Clear existing paragraphs
+        contentText.innerHTML = '';
 
-              ▄▄▄▄▌▀▀▀▀▀▀└
+        // Create and append new paragraphs
+        paragraphs.forEach((paragraphHTML) => {
+            const paragraphElement = document.createElement('p');
+            paragraphElement.innerHTML = paragraphHTML;
+            contentText.appendChild(paragraphElement);
+        });
 
-               ████M
+        contentDescription.style.display = 'block';
 
-       ,╓  ╙██▄▄▄▄▄▄▄▄▄▄▄████  ╓,
+        // Set initial opacity to 0
+        contentDescription.style.opacity = 0;
 
-,▄▄███████▄   ╙▀▀▀▀▀▀▀▀▀▀▀└  ▄████████▄µ
+        // Use Tween.js to animate opacity to 1 (fade-in effect)
+        new TWEEN.Tween({ opacity: 0 })
+            .to({ opacity: 1 }, 500)  // Set the duration (in milliseconds)
+            .onUpdate((tween) => {
+                contentDescription.style.opacity = tween.opacity;
+            })
+            .start();
+    }
 
-▀█████████████▄▄▄▄╓╓╓╓▄▄▄▄█████████████▀
+    // Function to hide content description
+    function hideContentDescription() {
+        contentDescription.style.display = 'none';
+        new TWEEN.Tween({ opacity: 1 })
+        .to({ opacity: 0 }, 500)  // Set the duration (in milliseconds)
+        .onUpdate((tween) => {
+            contentDescription.style.opacity = tween.opacity;
+        })
+        .onComplete(() => {
+            // Hide the content description after the animation completes
+            contentDescription.style.display = 'none';
+        })
+        .start();
+    }
 
-  └▀▀██████████████████████████████▀▀└
-  
-  ======= If you hire me or just talk ======
-  ======= Hit me up on LinkedIn ============
-  ================ at ======================
-  ======= linkedin.com/in/mateusmb =========`);
-    </script>
-  </body>
+    // Start animation loop
+    animate();
+</script>
+
+</body>
 </html>
